@@ -74,7 +74,48 @@ CREATE TABLE IF NOT EXISTS `appartenir` (
   CONSTRAINT `FK__genre` FOREIGN KEY (`id_genre`) REFERENCES `genre` (`id_genre`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
--- Listage des données de la table cinema_loic.appartenir : ~0 rows (environ)
+-- Listage des données de la table cinema_loic.appartenir : ~40 rows (environ)
+INSERT IGNORE INTO `appartenir` (`id_film`, `id_genre`) VALUES
+	(1, 1),
+	(2, 2),
+	(3, 2),
+	(4, 3),
+	(5, 3),
+	(6, 1),
+	(7, 3),
+	(8, 3),
+	(9, 3),
+	(10, 4),
+	(11, 4),
+	(12, 5),
+	(13, 5),
+	(14, 3),
+	(15, 4),
+	(16, 3),
+	(17, 2),
+	(18, 3),
+	(19, 5),
+	(20, 6),
+	(21, 3),
+	(22, 2),
+	(23, 6),
+	(24, 2),
+	(25, 1),
+	(26, 2),
+	(27, 3),
+	(28, 6),
+	(29, 3),
+	(30, 5),
+	(31, 1),
+	(32, 3),
+	(33, 3),
+	(34, 4),
+	(35, 2),
+	(36, 1),
+	(37, 4),
+	(38, 3),
+	(39, 4),
+	(40, 3);
 
 -- Listage de la structure de table cinema_loic. film
 CREATE TABLE IF NOT EXISTS `film` (
@@ -163,7 +204,48 @@ CREATE TABLE IF NOT EXISTS `jouer` (
   CONSTRAINT `FK__role` FOREIGN KEY (`id_role`) REFERENCES `role` (`id_role`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
--- Listage des données de la table cinema_loic.jouer : ~0 rows (environ)
+-- Listage des données de la table cinema_loic.jouer : ~40 rows (environ)
+INSERT IGNORE INTO `jouer` (`id_film`, `id_acteur`, `id_role`) VALUES
+	(1, NULL, NULL),
+	(2, NULL, NULL),
+	(3, NULL, NULL),
+	(4, NULL, NULL),
+	(5, NULL, NULL),
+	(6, NULL, NULL),
+	(7, NULL, NULL),
+	(8, NULL, NULL),
+	(9, NULL, NULL),
+	(10, NULL, NULL),
+	(11, NULL, NULL),
+	(12, NULL, NULL),
+	(13, NULL, NULL),
+	(14, NULL, NULL),
+	(15, NULL, NULL),
+	(16, NULL, NULL),
+	(17, NULL, NULL),
+	(18, NULL, NULL),
+	(19, NULL, NULL),
+	(20, NULL, NULL),
+	(21, NULL, NULL),
+	(22, NULL, NULL),
+	(23, NULL, NULL),
+	(24, NULL, NULL),
+	(25, NULL, NULL),
+	(26, NULL, NULL),
+	(27, NULL, NULL),
+	(28, NULL, NULL),
+	(29, NULL, NULL),
+	(30, NULL, NULL),
+	(31, NULL, NULL),
+	(32, NULL, NULL),
+	(33, NULL, NULL),
+	(34, NULL, NULL),
+	(35, NULL, NULL),
+	(36, NULL, NULL),
+	(37, NULL, NULL),
+	(38, NULL, NULL),
+	(39, NULL, NULL),
+	(40, NULL, NULL);
 
 -- Listage de la structure de table cinema_loic. personne
 CREATE TABLE IF NOT EXISTS `personne` (
