@@ -28,7 +28,28 @@ CREATE TABLE IF NOT EXISTS `acteur` (
   CONSTRAINT `FK__personne` FOREIGN KEY (`id_personne`) REFERENCES `personne` (`id_personne`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
--- Listage des données de la table cinema_loic.acteur : ~0 rows (environ)
+-- Listage des données de la table cinema_loic.acteur : ~20 rows (environ)
+INSERT IGNORE INTO `acteur` (`id_acteur`, `id_personne`) VALUES
+	(4, 1),
+	(1, 2),
+	(2, 3),
+	(3, 4),
+	(6, 5),
+	(7, 6),
+	(8, 7),
+	(11, 8),
+	(12, 9),
+	(13, 10),
+	(14, 11),
+	(15, 12),
+	(9, 13),
+	(10, 14),
+	(16, 15),
+	(17, 16),
+	(18, 17),
+	(19, 18),
+	(5, 60),
+	(20, 61);
 
 -- Listage de la structure de table cinema_loic. appartenir
 CREATE TABLE IF NOT EXISTS `appartenir` (
@@ -100,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `personne` (
   PRIMARY KEY (`id_personne`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
--- Listage des données de la table cinema_loic.personne : ~58 rows (environ)
+-- Listage des données de la table cinema_loic.personne : ~60 rows (environ)
 INSERT IGNORE INTO `personne` (`id_personne`, `prenom_personne`, `nom_personne`, `sexe_personne`, `date_naissance_personne`) VALUES
 	(1, 'Leonardo', 'DiCaprio', 'Male', '1974-11-11'),
 	(2, 'Timothée', 'Chalamet', 'Male', '1995-12-27'),
@@ -159,7 +180,9 @@ INSERT IGNORE INTO `personne` (`id_personne`, `prenom_personne`, `nom_personne`,
 	(56, 'Damien', 'Chazelle', 'Male', '1985-01-19'),
 	(57, 'Safdies', '', 'Male', '1986-02-24'),
 	(58, 'Jon', 'Watts', 'Male', '1981-06-28'),
-	(59, 'Steve', 'McQueen', 'Male', '1969-10-09');
+	(59, 'Steve', 'McQueen', 'Male', '1969-10-09'),
+	(60, 'Robert', 'De Niro', 'Male', '1943-08-17'),
+	(61, 'Tom', 'Cruise', 'Male', '1962-07-03');
 
 -- Listage de la structure de table cinema_loic. realisateur
 CREATE TABLE IF NOT EXISTS `realisateur` (
