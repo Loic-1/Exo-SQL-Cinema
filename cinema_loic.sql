@@ -26,9 +26,9 @@ CREATE TABLE IF NOT EXISTS `acteur` (
   PRIMARY KEY (`id_acteur`),
   KEY `FK__personne` (`id_personne`),
   CONSTRAINT `FK__personne` FOREIGN KEY (`id_personne`) REFERENCES `personne` (`id_personne`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
--- Listage des données de la table cinema_loic.acteur : ~33 rows (environ)
+-- Listage des données de la table cinema_loic.acteur : ~0 rows (environ)
 INSERT IGNORE INTO `acteur` (`id_acteur`, `id_personne`) VALUES
 	(4, 1),
 	(1, 2),
@@ -82,16 +82,57 @@ CREATE TABLE IF NOT EXISTS `film` (
   `titre_film` varchar(50) COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
   `sortie_film` date DEFAULT NULL,
   `duree_film` int NOT NULL DEFAULT '0',
-  `resume_film` text COLLATE utf8mb4_bin NOT NULL,
+  `resume_film` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
   `note_film` int NOT NULL DEFAULT '0',
   `url_affiche_film` varchar(255) COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
   `id_realisateur` int DEFAULT NULL,
   PRIMARY KEY (`id_film`),
   KEY `id_realisateur` (`id_realisateur`),
   CONSTRAINT `FK_film_realisateur` FOREIGN KEY (`id_realisateur`) REFERENCES `realisateur` (`id_realisateur`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
--- Listage des données de la table cinema_loic.film : ~0 rows (environ)
+-- Listage des données de la table cinema_loic.film : ~40 rows (environ)
+INSERT IGNORE INTO `film` (`id_film`, `titre_film`, `sortie_film`, `duree_film`, `resume_film`, `note_film`, `url_affiche_film`, `id_realisateur`) VALUES
+	(1, 'Dune', '2021-10-22', 155, NULL, 82, '0', NULL),
+	(2, 'The Batman', '2022-03-04', 176, NULL, 85, '0', NULL),
+	(3, 'Avengers: Endgame', '2019-04-26', 182, NULL, 94, '0', NULL),
+	(4, 'Le Loup de Wall Street', '2013-12-25', 179, NULL, 79, '0', NULL),
+	(5, 'The Irishman', '2019-11-01', 209, NULL, 95, '0', NULL),
+	(6, 'Interstellar', '2014-11-07', 169, NULL, 86, '0', NULL),
+	(7, 'Les Misérables', '2012-12-25', 158, NULL, 70, '0', NULL),
+	(8, 'Once Upon a Time in Hollywood', '2019-07-26', 160, NULL, 85, '0', NULL),
+	(9, 'The Revenant', '2015-12-25', 156, '', 78, '0', NULL),
+	(10, 'Zodiac', '2007-03-02', 157, NULL, 89, '0', NULL),
+	(11, 'Parasite', '2019-05-30', 132, NULL, 96, '0', NULL),
+	(12, 'Get Out', '2017-02-24', 104, NULL, 98, '0', NULL),
+	(13, 'A Quiet Place', '2018-04-06', 90, NULL, 95, '0', NULL),
+	(14, 'Whiplash', '2014-10-10', 107, NULL, 94, '0', NULL),
+	(15, 'Uncut Gems', '2019-12-13', 135, NULL, 92, '0', NULL),
+	(16, 'Joker', '2019-10-04', 122, NULL, 68, '0', NULL),
+	(17, 'Mad Max: Fury Road', '2015-05-15', 120, NULL, 97, '0', NULL),
+	(18, 'Her', '2013-12-18', 126, NULL, 94, '0', NULL),
+	(19, 'The Lighthouse', '2019-10-18', 110, NULL, 90, '0', NULL),
+	(20, 'Jojo Rabbit', '2019-10-18', 108, NULL, 80, '0', NULL),
+	(21, 'Oppenheimer', '2023-07-21', 180, NULL, 94, '0', NULL),
+	(22, 'Spider-Man: No Way Home', '2021-12-17', 148, NULL, 93, '0', NULL),
+	(23, 'Barbie', '2023-07-21', 114, NULL, 88, '0', NULL),
+	(24, 'Top Gun: Maverick', '2022-05-27', 131, NULL, 96, '0', NULL),
+	(25, 'Everything Everywhere All at Once', '2022-03-11', 139, NULL, 95, '0', NULL),
+	(26, 'Black Panther: Wakanda Forever', '2022-11-11', 161, NULL, 84, '0', NULL),
+	(27, 'The Whale', '2022-12-09', 117, NULL, 74, '0', NULL),
+	(28, 'Glass Onion: A Knives Out Mystery', '2022-04-22', 139, NULL, 82, '0', NULL),
+	(29, 'The Northman', '2022-04-22', 137, NULL, 89, '0', NULL),
+	(30, 'Nope', '2022-07-22', 130, NULL, 83, '0', NULL),
+	(31, 'Inception', '2010-07-16', 148, NULL, 86, '0', NULL),
+	(32, 'Fight Club', '1999-10-15', 139, NULL, 79, '0', NULL),
+	(33, 'Inglourious Basterds', '2009-08-21', 153, NULL, 89, '0', NULL),
+	(34, 'Shutter Island', '2010-02-19', 138, NULL, 84, '0', NULL),
+	(35, 'The Dark Knight', '2008-07-18', 152, NULL, 94, '0', NULL),
+	(36, 'The Matrix', '1999-03-31', 136, NULL, 87, '0', NULL),
+	(37, 'Pulp Fiction', '1994-10-14', 154, NULL, 89, '0', NULL),
+	(38, '12 Years a Slave', '2013-10-18', 134, NULL, 96, '0', NULL),
+	(39, 'Memento', '2000-10-11', 113, NULL, 92, '0', NULL),
+	(40, 'The Social Network', '2010-10-01', 120, NULL, 96, '0', NULL);
 
 -- Listage de la structure de table cinema_loic. genre
 CREATE TABLE IF NOT EXISTS `genre` (
@@ -100,7 +141,7 @@ CREATE TABLE IF NOT EXISTS `genre` (
   PRIMARY KEY (`id_genre`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
--- Listage des données de la table cinema_loic.genre : ~6 rows (environ)
+-- Listage des données de la table cinema_loic.genre : ~0 rows (environ)
 INSERT IGNORE INTO `genre` (`id_genre`, `libelle_genre`) VALUES
 	(1, 'Science-fiction'),
 	(2, 'Action'),
@@ -132,9 +173,9 @@ CREATE TABLE IF NOT EXISTS `personne` (
   `sexe_personne` varchar(50) COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
   `date_naissance_personne` date DEFAULT NULL,
   PRIMARY KEY (`id_personne`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
--- Listage des données de la table cinema_loic.personne : ~61 rows (environ)
+-- Listage des données de la table cinema_loic.personne : ~0 rows (environ)
 INSERT IGNORE INTO `personne` (`id_personne`, `prenom_personne`, `nom_personne`, `sexe_personne`, `date_naissance_personne`) VALUES
 	(1, 'Leonardo', 'DiCaprio', 'Male', '1974-11-11'),
 	(2, 'Timothée', 'Chalamet', 'Male', '1995-12-27'),
@@ -205,9 +246,9 @@ CREATE TABLE IF NOT EXISTS `realisateur` (
   PRIMARY KEY (`id_realisateur`),
   KEY `id_personne` (`id_personne`),
   CONSTRAINT `FK_realisateur_personne` FOREIGN KEY (`id_personne`) REFERENCES `personne` (`id_personne`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
--- Listage des données de la table cinema_loic.realisateur : ~30 rows (environ)
+-- Listage des données de la table cinema_loic.realisateur : ~0 rows (environ)
 INSERT IGNORE INTO `realisateur` (`id_realisateur`, `id_personne`) VALUES
 	(1, 30),
 	(2, 31),
@@ -247,7 +288,7 @@ CREATE TABLE IF NOT EXISTS `role` (
   PRIMARY KEY (`id_role`)
 ) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
--- Listage des données de la table cinema_loic.role : ~39 rows (environ)
+-- Listage des données de la table cinema_loic.role : ~0 rows (environ)
 INSERT IGNORE INTO `role` (`id_role`, `nom_role`) VALUES
 	(1, 'Paul Atreides'),
 	(2, 'Bruce Wayne/Batman'),
