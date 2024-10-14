@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `acteur` (
   CONSTRAINT `FK__personne` FOREIGN KEY (`id_personne`) REFERENCES `personne` (`id_personne`)
 ) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
--- Listage des données de la table cinema_loic.acteur : ~0 rows (environ)
+-- Listage des données de la table cinema_loic.acteur : ~33 rows (environ)
 INSERT IGNORE INTO `acteur` (`id_acteur`, `id_personne`) VALUES
 	(4, 1),
 	(1, 2),
@@ -93,46 +93,46 @@ CREATE TABLE IF NOT EXISTS `film` (
 
 -- Listage des données de la table cinema_loic.film : ~40 rows (environ)
 INSERT IGNORE INTO `film` (`id_film`, `titre_film`, `sortie_film`, `duree_film`, `resume_film`, `note_film`, `url_affiche_film`, `id_realisateur`) VALUES
-	(1, 'Dune', '2021-10-22', 155, NULL, 82, '0', NULL),
-	(2, 'The Batman', '2022-03-04', 176, NULL, 85, '0', NULL),
-	(3, 'Avengers: Endgame', '2019-04-26', 182, NULL, 94, '0', NULL),
-	(4, 'Le Loup de Wall Street', '2013-12-25', 179, NULL, 79, '0', NULL),
-	(5, 'The Irishman', '2019-11-01', 209, NULL, 95, '0', NULL),
-	(6, 'Interstellar', '2014-11-07', 169, NULL, 86, '0', NULL),
-	(7, 'Les Misérables', '2012-12-25', 158, NULL, 70, '0', NULL),
-	(8, 'Once Upon a Time in Hollywood', '2019-07-26', 160, NULL, 85, '0', NULL),
-	(9, 'The Revenant', '2015-12-25', 156, '', 78, '0', NULL),
-	(10, 'Zodiac', '2007-03-02', 157, NULL, 89, '0', NULL),
-	(11, 'Parasite', '2019-05-30', 132, NULL, 96, '0', NULL),
-	(12, 'Get Out', '2017-02-24', 104, NULL, 98, '0', NULL),
-	(13, 'A Quiet Place', '2018-04-06', 90, NULL, 95, '0', NULL),
-	(14, 'Whiplash', '2014-10-10', 107, NULL, 94, '0', NULL),
-	(15, 'Uncut Gems', '2019-12-13', 135, NULL, 92, '0', NULL),
-	(16, 'Joker', '2019-10-04', 122, NULL, 68, '0', NULL),
-	(17, 'Mad Max: Fury Road', '2015-05-15', 120, NULL, 97, '0', NULL),
-	(18, 'Her', '2013-12-18', 126, NULL, 94, '0', NULL),
-	(19, 'The Lighthouse', '2019-10-18', 110, NULL, 90, '0', NULL),
-	(20, 'Jojo Rabbit', '2019-10-18', 108, NULL, 80, '0', NULL),
-	(21, 'Oppenheimer', '2023-07-21', 180, NULL, 94, '0', NULL),
-	(22, 'Spider-Man: No Way Home', '2021-12-17', 148, NULL, 93, '0', NULL),
-	(23, 'Barbie', '2023-07-21', 114, NULL, 88, '0', NULL),
-	(24, 'Top Gun: Maverick', '2022-05-27', 131, NULL, 96, '0', NULL),
-	(25, 'Everything Everywhere All at Once', '2022-03-11', 139, NULL, 95, '0', NULL),
-	(26, 'Black Panther: Wakanda Forever', '2022-11-11', 161, NULL, 84, '0', NULL),
-	(27, 'The Whale', '2022-12-09', 117, NULL, 74, '0', NULL),
-	(28, 'Glass Onion: A Knives Out Mystery', '2022-04-22', 139, NULL, 82, '0', NULL),
-	(29, 'The Northman', '2022-04-22', 137, NULL, 89, '0', NULL),
-	(30, 'Nope', '2022-07-22', 130, NULL, 83, '0', NULL),
-	(31, 'Inception', '2010-07-16', 148, NULL, 86, '0', NULL),
-	(32, 'Fight Club', '1999-10-15', 139, NULL, 79, '0', NULL),
-	(33, 'Inglourious Basterds', '2009-08-21', 153, NULL, 89, '0', NULL),
-	(34, 'Shutter Island', '2010-02-19', 138, NULL, 84, '0', NULL),
-	(35, 'The Dark Knight', '2008-07-18', 152, NULL, 94, '0', NULL),
-	(36, 'The Matrix', '1999-03-31', 136, NULL, 87, '0', NULL),
-	(37, 'Pulp Fiction', '1994-10-14', 154, NULL, 89, '0', NULL),
-	(38, '12 Years a Slave', '2013-10-18', 134, NULL, 96, '0', NULL),
-	(39, 'Memento', '2000-10-11', 113, NULL, 92, '0', NULL),
-	(40, 'The Social Network', '2010-10-01', 120, NULL, 96, '0', NULL);
+	(1, 'Dune', '2021-10-22', 155, 'In a distant future, young Paul Atreides must navigate treachery and power struggles to protect his family\'s control over the desert planet Arrakis, home to the most valuable resource in the universe.', 82, '0', NULL),
+	(2, 'The Batman', '2022-03-04', 176, 'Bruce Wayne, as Batman, uncovers corruption in Gotham City while hunting down the Riddler, a sadistic killer targeting high-profile figures.', 85, '0', NULL),
+	(3, 'Avengers: Endgame', '2019-04-26', 182, 'The Avengers assemble one final time to undo the catastrophic damage caused by Thanos, risking their lives to restore balance to the universe.', 94, '0', NULL),
+	(4, 'Le Loup de Wall Street', '2013-12-25', 179, 'Jordan Belfort rises to wealth and excess through stock market manipulation and fraud, but his greed leads to a dramatic fall from grace.', 79, '0', NULL),
+	(5, 'The Irishman', '2019-11-01', 209, 'Hitman Frank Sheeran reflects on his life of crime, his involvement with notorious figures, and his part in the disappearance of union leader Jimmy Hoffa.', 95, '0', NULL),
+	(6, 'Interstellar', '2014-11-07', 169, 'A team of astronauts embarks on a perilous journey through a wormhole in search of a new home for humanity as Earth faces ecological collapse.', 86, '0', NULL),
+	(7, 'Les Misérables', '2012-12-25', 158, 'The story of Jean Valjean, an ex-convict seeking redemption in post-revolutionary France, set against the backdrop of rising political unrest.', 70, '0', NULL),
+	(8, 'Once Upon a Time in Hollywood', '2019-07-26', 160, 'In 1969 Los Angeles, fading actor Rick Dalton and his stunt double Cliff Booth navigate the changing film industry, intersecting with the infamous Manson Family.', 85, '0', NULL),
+	(9, 'The Revenant', '2015-12-25', 156, 'After being left for dead by his crew, frontiersman Hugh Glass embarks on a grueling quest for survival and revenge against the man who betrayed him.', 78, '0', NULL),
+	(10, 'Zodiac', '2007-03-02', 157, 'A cartoonist and journalist become obsessed with tracking down the elusive Zodiac killer, whose cryptic letters terrorized the San Francisco Bay Area in the 1960s.', 89, '0', NULL),
+	(11, 'Parasite', '2019-05-30', 132, 'A poor family infiltrates the life of a wealthy household by taking on various servant roles, but their ruse spirals into tragedy as class tensions escalate.', 96, '0', NULL),
+	(12, 'Get Out', '2017-02-24', 104, 'Chris, a Black man, visits his white girlfriend\'s family for the weekend, but strange events reveal a horrifying secret about their intentions.\n\n', 98, '0', NULL),
+	(13, 'A Quiet Place', '2018-04-06', 90, 'In a post-apocalyptic world overrun by creatures that hunt by sound, a family struggles to survive in silence, communicating only through sign language.', 95, '0', NULL),
+	(14, 'Whiplash', '2014-10-10', 107, 'A young jazz drummer endures psychological and physical torment from his abusive instructor as he strives to achieve greatness in a prestigious music school.', 94, '0', NULL),
+	(15, 'Uncut Gems', '2019-12-13', 135, ' New York jeweler with a gambling addiction risks everything on a high-stakes bet while juggling debts and dangerous consequences.', 92, '0', NULL),
+	(16, 'Joker', '2019-10-04', 122, 'Arthur Fleck, a mentally ill clown, descends into madness and transforms into the iconic villain Joker after enduring a lifetime of isolation and abuse.', 68, '0', NULL),
+	(17, 'Mad Max: Fury Road', '2015-05-15', 120, 'In a post-apocalyptic wasteland, Max teams up with the rebellious Furiosa to escape from a tyrannical warlord in a high-octane chase through the desert.', 97, '0', NULL),
+	(18, 'Her', '2013-12-18', 126, 'In a near-future world, a lonely writer forms an intimate relationship with his advanced AI operating system, blurring the lines between love and technology.\n\n', 94, '0', NULL),
+	(19, 'The Lighthouse', '2019-10-18', 110, 'Two lighthouse keepers descend into madness while isolated on a remote island, with their sanity fraying under the weight of loneliness and superstition.', 90, '0', NULL),
+	(20, 'Jojo Rabbit', '2019-10-18', 108, 'A young boy in Nazi Germany discovers that his mother is hiding a Jewish girl in their home, causing him to question his blind allegiance to Hitler.\n\n', 80, '0', NULL),
+	(21, 'Oppenheimer', '2023-07-21', 180, 'The story of J. Robert Oppenheimer, the brilliant physicist who led the development of the atomic bomb during World War II, and the ethical dilemmas he faced.', 94, '0', NULL),
+	(22, 'Spider-Man: No Way Home', '2021-12-17', 148, 'After his identity is revealed, Peter Parker seeks help from Doctor Strange, but the spell goes wrong, bringing villains from other dimensions into his world.', 93, '0', NULL),
+	(23, 'Barbie', '2023-07-21', 114, 'Barbie and Ken embark on a journey from the perfect world of Barbieland to the real world, learning profound truths about identity and self-worth along the way.', 88, '0', NULL),
+	(24, 'Top Gun: Maverick', '2022-05-27', 131, 'Maverick, now a seasoned pilot, returns to Top Gun to train a new generation of aviators, including the son of his late friend, Goose.', 96, '0', NULL),
+	(25, 'Everything Everywhere All at Once', '2022-03-11', 139, 'A woman discovers she can access alternate versions of herself across the multiverse, leading her on a mind-bending journey to save reality itself.\n\n', 95, '0', NULL),
+	(26, 'Black Panther: Wakanda Forever', '2022-11-11', 161, 'After the death of King T\'Challa, Wakanda faces threats from both outside forces and internal strife, leading to a new Black Panther rising.', 84, '0', NULL),
+	(27, 'The Whale', '2022-12-09', 117, 'A reclusive and morbidly obese teacher attempts to reconnect with his estranged daughter while grappling with guilt and the weight of his own mortality.\n\n', 74, '0', NULL),
+	(28, 'Glass Onion: A Knives Out Mystery', '2022-04-22', 139, 'Detective Benoit Blanc investigates a murder at a tech billionaire\'s private island, where deception and secrets lead to a complex and twisted mystery.', 82, '0', NULL),
+	(29, 'The Northman', '2022-04-22', 137, 'A Viking prince sets out on a bloody quest for revenge against the man who murdered his father and usurped his kingdom.', 89, '0', NULL),
+	(30, 'Nope', '2022-07-22', 130, 'Siblings running a California horse ranch discover a mysterious object in the sky, and their quest to capture footage of it reveals horrifying truths.', 83, '0', NULL),
+	(31, 'Inception', '2010-07-16', 148, 'A skilled thief, specialized in stealing secrets from within dreams, is given a chance to erase his criminal record by planting an idea in someone\'s subconscious.', 86, '0', NULL),
+	(32, 'Fight Club', '1999-10-15', 139, 'An unnamed narrator forms an underground fight club as an outlet for his frustrations with modern consumerism, but it spirals into anarchistic chaos.\n\n', 79, '0', NULL),
+	(33, 'Inglourious Basterds', '2009-08-21', 153, 'During World War II, a group of Jewish-American soldiers plots to assassinate Nazi leaders, intersecting with a French theater owner\'s revenge against the Nazis.', 89, '0', NULL),
+	(34, 'Shutter Island', '2010-02-19', 138, 'A U.S. Marshal investigates a mysterious disappearance at a mental institution, only to uncover dark secrets that challenge his own perception of reality.', 84, '0', NULL),
+	(35, 'The Dark Knight', '2008-07-18', 152, 'Batman faces his greatest nemesis, the Joker, whose chaotic schemes threaten Gotham City, pushing Batman to his moral limits.', 94, '0', NULL),
+	(36, 'The Matrix', '1999-03-31', 136, 'A hacker learns that his world is a simulated reality controlled by machines, leading him to join a rebellion against their oppressive rule.', 87, '0', NULL),
+	(37, 'Pulp Fiction', '1994-10-14', 154, 'A series of intertwining stories involving hitmen, a boxer, a gangster, and his wife unfolds in a stylish and nonlinear narrative of crime and redemption.', 89, '0', NULL),
+	(38, '12 Years a Slave', '2013-10-18', 134, 'The true story of Solomon Northup, a free Black man who is kidnapped and sold into slavery in the South, enduring years of unimaginable hardship.\n\n', 96, '0', NULL),
+	(39, 'Memento', '2000-10-11', 113, 'A man with short-term memory loss uses notes and tattoos to track down the man he believes murdered his wife, while the narrative unfolds in reverse.', 92, '0', NULL),
+	(40, 'The Social Network', '2010-10-01', 120, 'The rise of Facebook is chronicled through the legal battles and betrayals surrounding its creator, Mark Zuckerberg, and the co-founders of the social media giant.', 96, '0', NULL);
 
 -- Listage de la structure de table cinema_loic. genre
 CREATE TABLE IF NOT EXISTS `genre` (
@@ -141,7 +141,7 @@ CREATE TABLE IF NOT EXISTS `genre` (
   PRIMARY KEY (`id_genre`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
--- Listage des données de la table cinema_loic.genre : ~0 rows (environ)
+-- Listage des données de la table cinema_loic.genre : ~6 rows (environ)
 INSERT IGNORE INTO `genre` (`id_genre`, `libelle_genre`) VALUES
 	(1, 'Science-fiction'),
 	(2, 'Action'),
@@ -175,7 +175,7 @@ CREATE TABLE IF NOT EXISTS `personne` (
   PRIMARY KEY (`id_personne`)
 ) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
--- Listage des données de la table cinema_loic.personne : ~0 rows (environ)
+-- Listage des données de la table cinema_loic.personne : ~61 rows (environ)
 INSERT IGNORE INTO `personne` (`id_personne`, `prenom_personne`, `nom_personne`, `sexe_personne`, `date_naissance_personne`) VALUES
 	(1, 'Leonardo', 'DiCaprio', 'Male', '1974-11-11'),
 	(2, 'Timothée', 'Chalamet', 'Male', '1995-12-27'),
@@ -248,7 +248,7 @@ CREATE TABLE IF NOT EXISTS `realisateur` (
   CONSTRAINT `FK_realisateur_personne` FOREIGN KEY (`id_personne`) REFERENCES `personne` (`id_personne`)
 ) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
--- Listage des données de la table cinema_loic.realisateur : ~0 rows (environ)
+-- Listage des données de la table cinema_loic.realisateur : ~30 rows (environ)
 INSERT IGNORE INTO `realisateur` (`id_realisateur`, `id_personne`) VALUES
 	(1, 30),
 	(2, 31),
@@ -288,7 +288,7 @@ CREATE TABLE IF NOT EXISTS `role` (
   PRIMARY KEY (`id_role`)
 ) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
--- Listage des données de la table cinema_loic.role : ~0 rows (environ)
+-- Listage des données de la table cinema_loic.role : ~39 rows (environ)
 INSERT IGNORE INTO `role` (`id_role`, `nom_role`) VALUES
 	(1, 'Paul Atreides'),
 	(2, 'Bruce Wayne/Batman'),
