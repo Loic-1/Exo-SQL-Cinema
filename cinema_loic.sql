@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `acteur` (
   CONSTRAINT `FK__personne` FOREIGN KEY (`id_personne`) REFERENCES `personne` (`id_personne`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
--- Listage des données de la table cinema_loic.acteur : ~20 rows (environ)
+-- Listage des données de la table cinema_loic.acteur : ~33 rows (environ)
 INSERT IGNORE INTO `acteur` (`id_acteur`, `id_personne`) VALUES
 	(4, 1),
 	(1, 2),
@@ -44,12 +44,25 @@ INSERT IGNORE INTO `acteur` (`id_acteur`, `id_personne`) VALUES
 	(15, 12),
 	(9, 13),
 	(10, 14),
+	(26, 14),
 	(16, 15),
 	(17, 16),
 	(18, 17),
 	(19, 18),
+	(21, 19),
+	(22, 20),
+	(23, 21),
+	(24, 22),
+	(25, 23),
+	(29, 24),
+	(30, 25),
+	(31, 26),
+	(32, 27),
+	(33, 28),
+	(27, 29),
 	(5, 60),
-	(20, 61);
+	(20, 61),
+	(28, 62);
 
 -- Listage de la structure de table cinema_loic. appartenir
 CREATE TABLE IF NOT EXISTS `appartenir` (
@@ -121,7 +134,7 @@ CREATE TABLE IF NOT EXISTS `personne` (
   PRIMARY KEY (`id_personne`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
--- Listage des données de la table cinema_loic.personne : ~60 rows (environ)
+-- Listage des données de la table cinema_loic.personne : ~61 rows (environ)
 INSERT IGNORE INTO `personne` (`id_personne`, `prenom_personne`, `nom_personne`, `sexe_personne`, `date_naissance_personne`) VALUES
 	(1, 'Leonardo', 'DiCaprio', 'Male', '1974-11-11'),
 	(2, 'Timothée', 'Chalamet', 'Male', '1995-12-27'),
@@ -142,10 +155,10 @@ INSERT IGNORE INTO `personne` (`id_personne`, `prenom_personne`, `nom_personne`,
 	(17, 'Tom', 'Holland', 'Male', '1996-06-01'),
 	(18, 'Margot', 'Robbie', 'Female', '1990-07-02'),
 	(19, 'Michelle', 'Yeoh', 'Female', '1962-08-06'),
-	(20, 'Laetitia', 'Wright', 'Female', '1993-10-31'),
+	(20, 'Letitia', 'Wright', 'Female', '1993-10-31'),
 	(21, 'Brendan', 'Fraser', 'Male', '1968-12-03'),
 	(22, 'Daniel', 'Craig', 'Male', '1968-03-02'),
-	(23, 'Alexandre', 'Skarsgård', 'Male', '1976-08-25'),
+	(23, 'Alexander', 'Skarsgård', 'Male', '1976-08-25'),
 	(24, 'Keanu', 'Reeves', 'Male', '1964-09-02'),
 	(25, 'John', 'Travolta', 'Male', '1954-02-18'),
 	(26, 'Chiwetel', 'Ejiofor', 'Male', '1977-07-10'),
@@ -182,7 +195,8 @@ INSERT IGNORE INTO `personne` (`id_personne`, `prenom_personne`, `nom_personne`,
 	(58, 'Jon', 'Watts', 'Male', '1981-06-28'),
 	(59, 'Steve', 'McQueen', 'Male', '1969-10-09'),
 	(60, 'Robert', 'De Niro', 'Male', '1943-08-17'),
-	(61, 'Tom', 'Cruise', 'Male', '1962-07-03');
+	(61, 'Tom', 'Cruise', 'Male', '1962-07-03'),
+	(62, 'Christian', 'Bale', 'Male', '1974-01-30');
 
 -- Listage de la structure de table cinema_loic. realisateur
 CREATE TABLE IF NOT EXISTS `realisateur` (
