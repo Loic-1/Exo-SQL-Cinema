@@ -100,7 +100,7 @@ CREATE TABLE IF NOT EXISTS `personne` (
   PRIMARY KEY (`id_personne`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
--- Listage des données de la table cinema_loic.personne : ~54 rows (environ)
+-- Listage des données de la table cinema_loic.personne : ~58 rows (environ)
 INSERT IGNORE INTO `personne` (`id_personne`, `prenom_personne`, `nom_personne`, `sexe_personne`, `date_naissance_personne`) VALUES
 	(1, 'Leonardo', 'DiCaprio', 'Male', '1974-11-11'),
 	(2, 'Timothée', 'Chalamet', 'Male', '1995-12-27'),
@@ -150,12 +150,16 @@ INSERT IGNORE INTO `personne` (`id_personne`, `prenom_personne`, `nom_personne`,
 	(46, 'Taika', 'Waititi', 'Male', '1975-08-16'),
 	(47, 'Greta', 'Gerwig', 'Female', '1983-08-04'),
 	(48, 'Joseph', 'Kosinski', 'Male', '1974-05-03'),
-	(49, 'Daniel', 'Kwan', 'Male', '1988-02-10'),
-	(50, 'Daniel', 'Scheinert', 'Male', '1987-06-07'),
+	(49, 'Daniels', '', 'Male', '1988-02-10'),
 	(51, 'Ryan', 'Coogler', 'Male', '1986-05-23'),
 	(52, 'Darren', 'Aronofsky', 'Male', '1969-02-12'),
 	(53, 'Rian', 'Johnson', 'Male', '1973-12-17'),
-	(54, 'Lily', 'Wachowski', 'Female', '1967-12-29');
+	(54, 'Lily', 'Wachowski', 'Female', '1967-12-29'),
+	(55, 'Bong', 'Joon-Ho', 'Male', '1969-09-14'),
+	(56, 'Damien', 'Chazelle', 'Male', '1985-01-19'),
+	(57, 'Safdies', '', 'Male', '1986-02-24'),
+	(58, 'Jon', 'Watts', 'Male', '1981-06-28'),
+	(59, 'Steve', 'McQueen', 'Male', '1969-10-09');
 
 -- Listage de la structure de table cinema_loic. realisateur
 CREATE TABLE IF NOT EXISTS `realisateur` (
@@ -166,7 +170,38 @@ CREATE TABLE IF NOT EXISTS `realisateur` (
   CONSTRAINT `FK_realisateur_personne` FOREIGN KEY (`id_personne`) REFERENCES `personne` (`id_personne`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
--- Listage des données de la table cinema_loic.realisateur : ~0 rows (environ)
+-- Listage des données de la table cinema_loic.realisateur : ~30 rows (environ)
+INSERT IGNORE INTO `realisateur` (`id_realisateur`, `id_personne`) VALUES
+	(1, 30),
+	(2, 31),
+	(3, 32),
+	(4, 33),
+	(5, 34),
+	(22, 34),
+	(6, 35),
+	(7, 36),
+	(8, 37),
+	(9, 38),
+	(13, 39),
+	(14, 40),
+	(17, 42),
+	(18, 43),
+	(19, 44),
+	(20, 45),
+	(30, 45),
+	(21, 46),
+	(24, 47),
+	(25, 48),
+	(26, 49),
+	(27, 51),
+	(28, 52),
+	(29, 53),
+	(31, 54),
+	(10, 55),
+	(15, 56),
+	(16, 57),
+	(23, 58),
+	(32, 59);
 
 -- Listage de la structure de table cinema_loic. role
 CREATE TABLE IF NOT EXISTS `role` (
