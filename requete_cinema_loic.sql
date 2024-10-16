@@ -58,7 +58,7 @@ INNER JOIN role r ON j.id_role = r.id_role
 INNER JOIN acteur ac ON j.id_acteur = ac.id_acteur
 INNER JOIN personne p ON ac.id_personne = p.id_personne
 WHERE ac.id_acteur = 4
-GROUP BY f.id_film, p.id_personne, r.id_role
+GROUP BY f.id_film, r.id_role
 ORDER BY  f.sortie_film DESC;
 
 
