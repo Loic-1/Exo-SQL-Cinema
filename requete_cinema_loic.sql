@@ -1,6 +1,6 @@
 -- a. Informations d’un film (id_film) : titre, année, durée (au format HH:MM) et réalisateur 
 
-SELECT f.titre_film, f.sortie_film, f.duree_film, p.prenom_personne, p.nom_personne
+SELECT f.titre_film, YEAR(f.sortie_film), f.duree_film, p.prenom_personne, p.nom_personne
 FROM film f
 INNER JOIN realisateur r ON f.id_realisateur = r.id_realisateur
 INNER JOIN personne p ON r.id_personne = p.id_personne
@@ -16,7 +16,7 @@ ORDER BY f.duree_film DESC;
 
 -- c. Liste des films d’un réalisateur (en précisant l’année de sortie) 
 
-SELECT f.titre_film, f.sortie_film
+SELECT f.titre_film, YEAR(f.sortie_film)
 FROM film f
 WHERE f.id_realisateur = 1;
 
@@ -51,7 +51,7 @@ GROUP BY p.id_personne, r.id_role;
 
 -- g. Films tournés par un acteur en particulier (id_acteur) avec leur rôle et l’année de sortie (du film le plus récent au plus ancien)
 
-SELECT p.prenom_personne, p.nom_personne, f.titre_film, r.nom_role, f.sortie_film
+SELECT p.prenom_personne, p.nom_personne, f.titre_film, r.nom_role, YEAR(f.sortie_film)
 FROM film f
 INNER JOIN jouer j ON f.id_film = j.id_film
 INNER JOIN role r ON j.id_role = r.id_role
@@ -72,7 +72,7 @@ GROUP BY p.id_personne;
 
 -- i. Liste des films qui ont moins de 5 ans (classés du plus récent au plus ancien)
 
-SELECT f.titre_film, f.sortie_film
+SELECT f.titre_film, YEAR(f.sortie_film)
 FROM film f
 WHERE f.sortie_film >  CURRENT_DATE - INTERVAL 5 YEAR;
 
