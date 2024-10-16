@@ -38,7 +38,7 @@ INNER JOIN personne p ON r.id_personne = p.id_personne
 GROUP BY p.prenom_personne, p.nom_personne
 ORDER BY nbFilms DESC;
 
--- f. Casting d’un film en particulier (id_film) : nom, prénom des acteurs + sexe
+-- f. Casting d’un film en particulier (id_film) : nom, prénom des acteurs + sexe + role
 
 SELECT p.prenom_personne, p.nom_personne, p.sexe_personne
 FROM film f
@@ -83,7 +83,7 @@ INNER JOIN acteur ac ON p.id_personne = ac.id_personne
 GROUP BY p.sexe_personne
 ORDER BY sumGender DESC;
 
--- k. Liste des acteurs ayant plus de 50 ans (âge révolu et non révolu)
+-- k. Liste des acteurs ayant plus de 50 ans (âge révolu et non révolu) + âge
 
 SELECT p.prenom_personne, p.nom_personne
 FROM personne p
@@ -93,6 +93,21 @@ GROUP BY p.prenom_personne, p.nom_personne;
 
 -- l. Acteurs ayant joué dans 3 films ou plus
 
+SELECT p.prenom_personne, p.nom_personne, COUNT(f.id_film) AS sumFilms
+FROM film f
+INNER JOIN jouer j ON f.id_film = j.id_film
+INNER JOIN acteur ac ON j.id_acteur = ac.id_acteur
+INNER JOIN personne p ON ac.id_personne = p.id_personne
+GROUP BY ac.id_acteur
+HAVING sumFilms >= 3
 
+-- SELECT p.prenom_personne, p.nom_personne, COUNT(f.id_film) AS sumFilms
+-- FROM film f
+-- INNER JOIN jouer j ON f.id_film = j.id_film
+-- INNER JOIN acteur ac ON j.id_acteur = ac.id_acteur
+-- INNER JOIN personne p ON ac.id_personne = p.id_personne
+-- WHERE sumFilms >= 3
+-- GROUP BY p.prenom_personne, p.nom_personne
+-- ORDER BY sumFilms;
 
 -- fin
