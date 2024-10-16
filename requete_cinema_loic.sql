@@ -5,7 +5,7 @@ FROM film f
 INNER JOIN realisateur r ON f.id_realisateur = r.id_realisateur
 INNER JOIN personne p ON r.id_personne = p.id_personne
 WHERE f.id_film = 1
-GROUP BY p.prenom_personne, p.nom_personne;
+GROUP BY f.id_film;
 
 -- b. Liste des films dont la durée excède 2h15 classés par durée (du + long au + court)
 
@@ -26,7 +26,7 @@ SELECT g.libelle_genre, COUNT(f.id_film) AS nbFilms
 FROM film f
 INNER JOIN appartenir a ON f.id_film = a.id_film
 INNER JOIN genre g ON a.id_genre = g.id_genre
-GROUP BY g.libelle_genre
+GROUP BY g.id_genre
 ORDER BY nbFilms DESC;
 
 -- e. Nombre de films par réalisateur (classés dans l’ordre décroissant)
@@ -35,7 +35,7 @@ SELECT p.prenom_personne, p.nom_personne, COUNT(f.id_film) AS nbFilms
 FROM film f
 INNER JOIN realisateur r ON f.id_realisateur = r.id_realisateur
 INNER JOIN personne p ON r.id_personne = p.id_personne
-GROUP BY p.prenom_personne, p.nom_personne
+GROUP BY r.id_realisateur
 ORDER BY nbFilms DESC;
 
 -- f. Casting d’un film en particulier (id_film) : nom, prénom des acteurs + sexe + role
@@ -46,7 +46,7 @@ INNER JOIN jouer j ON f.id_film = j.id_film
 INNER JOIN acteur ac ON j.id_acteur = ac.id_acteur
 INNER JOIN personne p ON ac.id_personne = p.id_personne
 WHERE f.id_film = 1
-GROUP BY p.prenom_personne, p.nom_personne, p.sexe_personne;
+GROUP BY p.id_personne;
 
 -- g. Films tournés par un acteur en particulier (id_acteur) avec leur rôle et l’année de sortie (du film le plus récent au plus ancien)
 
@@ -57,7 +57,7 @@ INNER JOIN role r ON j.id_role = r.id_role
 INNER JOIN acteur ac ON j.id_acteur = ac.id_acteur
 INNER JOIN personne p ON ac.id_personne = p.id_personne
 WHERE ac.id_acteur = 4
-GROUP BY p.prenom_personne, p.nom_personne, f.titre_film, f.sortie_film, r.nom_role
+GROUP BY f.id_film, p.id_personne, r.id_role
 ORDER BY  f.sortie_film DESC;
 
 
@@ -67,7 +67,7 @@ SELECT p.prenom_personne, p.nom_personne
 FROM personne p
 INNER JOIN realisateur r ON p.id_personne = r.id_personne
 INNER JOIN acteur ac ON p.id_personne = ac.id_personne
-GROUP BY p.prenom_personne, p.nom_personne;
+GROUP BY p.id_personne;
 
 -- i. Liste des films qui ont moins de 5 ans (classés du plus récent au plus ancien)
 
@@ -89,7 +89,7 @@ SELECT p.prenom_personne, p.nom_personne
 FROM personne p
 INNER JOIN acteur ac ON p.id_personne = ac.id_personne
 WHERE p.date_naissance_personne < CURRENT_DATE - INTERVAL 50 YEAR
-GROUP BY p.prenom_personne, p.nom_personne;
+GROUP BY p.id_personne;
 
 -- l. Acteurs ayant joué dans 3 films ou plus
 
@@ -100,14 +100,5 @@ INNER JOIN acteur ac ON j.id_acteur = ac.id_acteur
 INNER JOIN personne p ON ac.id_personne = p.id_personne
 GROUP BY ac.id_acteur
 HAVING sumFilms >= 3
-
--- SELECT p.prenom_personne, p.nom_personne, COUNT(f.id_film) AS sumFilms
--- FROM film f
--- INNER JOIN jouer j ON f.id_film = j.id_film
--- INNER JOIN acteur ac ON j.id_acteur = ac.id_acteur
--- INNER JOIN personne p ON ac.id_personne = p.id_personne
--- WHERE sumFilms >= 3
--- GROUP BY p.prenom_personne, p.nom_personne
--- ORDER BY sumFilms;
 
 -- fin
