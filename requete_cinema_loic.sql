@@ -13,7 +13,7 @@ ORDER BY duree_film DESC;
 
 -- c. Liste des films d’un réalisateur (en précisant l’année de sortie) 
 
-SELECT 
+-- SELECT 
 
 -- d. Nombre de films par genre (classés dans l’ordre décroissant)
 
