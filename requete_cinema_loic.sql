@@ -40,13 +40,14 @@ ORDER BY nbFilms DESC;
 
 -- f. Casting d’un film en particulier (id_film) : nom, prénom des acteurs + sexe + role
 
-SELECT p.prenom_personne, p.nom_personne, p.sexe_personne
+SELECT p.prenom_personne, p.nom_personne, p.sexe_personne, r.nom_role
 FROM film f
 INNER JOIN jouer j ON f.id_film = j.id_film
+INNER JOIN role r ON j.id_role = r.id_role
 INNER JOIN acteur ac ON j.id_acteur = ac.id_acteur
 INNER JOIN personne p ON ac.id_personne = p.id_personne
 WHERE f.id_film = 1
-GROUP BY p.id_personne;
+GROUP BY p.id_personne, r.id_role;
 
 -- g. Films tournés par un acteur en particulier (id_acteur) avec leur rôle et l’année de sortie (du film le plus récent au plus ancien)
 
@@ -85,7 +86,7 @@ ORDER BY sumGender DESC;
 
 -- k. Liste des acteurs ayant plus de 50 ans (âge révolu et non révolu) + âge
 
-SELECT p.prenom_personne, p.nom_personne
+SELECT p.prenom_personne, p.nom_personne, FLOOR(DATEDIFF(CURRENT_DATE, p.date_naissance_personne) / 365)
 FROM personne p
 INNER JOIN acteur ac ON p.id_personne = ac.id_personne
 WHERE p.date_naissance_personne < CURRENT_DATE - INTERVAL 50 YEAR
