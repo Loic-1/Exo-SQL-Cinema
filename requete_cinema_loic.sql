@@ -73,11 +73,15 @@ GROUP BY p.prenom_personne, p.nom_personne;
 
 SELECT f.titre_film, f.sortie_film
 FROM film f
-WHERE f.sortie_film >  CURRENT_DATE - INTERVAL 5 YEAR
+WHERE f.sortie_film >  CURRENT_DATE - INTERVAL 5 YEAR;
 
 -- j. Nombre d’hommes et de femmes parmi les acteurs
 
-
+SELECT p.sexe_personne, COUNT(p.sexe_personne) AS sumGender
+FROM personne p
+INNER JOIN acteur ac ON p.id_personne = ac.id_personne
+GROUP BY p.sexe_personne
+ORDER BY sumGender DESC;
 
 -- k. Liste des acteurs ayant plus de 50 ans (âge révolu et non révolu)
 
