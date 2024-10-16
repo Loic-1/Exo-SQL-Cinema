@@ -71,7 +71,9 @@ GROUP BY p.prenom_personne, p.nom_personne;
 
 -- i. Liste des films qui ont moins de 5 ans (classés du plus récent au plus ancien)
 
-
+SELECT f.titre_film, f.sortie_film
+FROM film f
+WHERE f.sortie_film >  CURRENT_DATE - INTERVAL 5 YEAR
 
 -- j. Nombre d’hommes et de femmes parmi les acteurs
 
