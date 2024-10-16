@@ -29,7 +29,8 @@ CREATE TABLE IF NOT EXISTS `acteur` (
 ) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- Listage des données de la table cinema_loic.acteur : ~32 rows (environ)
-INSERT IGNORE INTO `acteur` (`id_acteur`, `id_personne`) VALUES
+DELETE FROM `acteur`;
+INSERT INTO `acteur` (`id_acteur`, `id_personne`) VALUES
 	(4, 1),
 	(1, 2),
 	(2, 3),
@@ -74,7 +75,8 @@ CREATE TABLE IF NOT EXISTS `appartenir` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- Listage des données de la table cinema_loic.appartenir : ~40 rows (environ)
-INSERT IGNORE INTO `appartenir` (`id_film`, `id_genre`) VALUES
+DELETE FROM `appartenir`;
+INSERT INTO `appartenir` (`id_film`, `id_genre`) VALUES
 	(1, 1),
 	(2, 2),
 	(3, 2),
@@ -119,12 +121,12 @@ INSERT IGNORE INTO `appartenir` (`id_film`, `id_genre`) VALUES
 -- Listage de la structure de table cinema_loic. film
 CREATE TABLE IF NOT EXISTS `film` (
   `id_film` int NOT NULL AUTO_INCREMENT,
-  `titre_film` varchar(50) COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
+  `titre_film` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
   `sortie_film` date DEFAULT NULL,
   `duree_film` int NOT NULL DEFAULT '0',
   `resume_film` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
   `note_film` int NOT NULL DEFAULT '0',
-  `url_affiche_film` varchar(255) COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
+  `url_affiche_film` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
   `id_realisateur` int DEFAULT NULL,
   PRIMARY KEY (`id_film`),
   KEY `id_realisateur` (`id_realisateur`),
@@ -132,7 +134,8 @@ CREATE TABLE IF NOT EXISTS `film` (
 ) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- Listage des données de la table cinema_loic.film : ~40 rows (environ)
-INSERT IGNORE INTO `film` (`id_film`, `titre_film`, `sortie_film`, `duree_film`, `resume_film`, `note_film`, `url_affiche_film`, `id_realisateur`) VALUES
+DELETE FROM `film`;
+INSERT INTO `film` (`id_film`, `titre_film`, `sortie_film`, `duree_film`, `resume_film`, `note_film`, `url_affiche_film`, `id_realisateur`) VALUES
 	(1, 'Dune', '2021-10-22', 155, 'In a distant future, young Paul Atreides must navigate treachery and power struggles to protect his family\'s control over the desert planet Arrakis, home to the most valuable resource in the universe.', 82, '0', 1),
 	(2, 'The Batman', '2022-03-04', 176, 'Bruce Wayne, as Batman, uncovers corruption in Gotham City while hunting down the Riddler, a sadistic killer targeting high-profile figures.', 85, '0', 2),
 	(3, 'Avengers: Endgame', '2019-04-26', 182, 'The Avengers assemble one final time to undo the catastrophic damage caused by Thanos, risking their lives to restore balance to the universe.', 94, '0', 3),
@@ -177,12 +180,13 @@ INSERT IGNORE INTO `film` (`id_film`, `titre_film`, `sortie_film`, `duree_film`,
 -- Listage de la structure de table cinema_loic. genre
 CREATE TABLE IF NOT EXISTS `genre` (
   `id_genre` int NOT NULL AUTO_INCREMENT,
-  `libelle_genre` varchar(50) COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
+  `libelle_genre` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_genre`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- Listage des données de la table cinema_loic.genre : ~6 rows (environ)
-INSERT IGNORE INTO `genre` (`id_genre`, `libelle_genre`) VALUES
+DELETE FROM `genre`;
+INSERT INTO `genre` (`id_genre`, `libelle_genre`) VALUES
 	(1, 'Science-fiction'),
 	(2, 'Action'),
 	(3, 'Drame'),
@@ -204,7 +208,8 @@ CREATE TABLE IF NOT EXISTS `jouer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- Listage des données de la table cinema_loic.jouer : ~40 rows (environ)
-INSERT IGNORE INTO `jouer` (`id_film`, `id_acteur`, `id_role`) VALUES
+DELETE FROM `jouer`;
+INSERT INTO `jouer` (`id_film`, `id_acteur`, `id_role`) VALUES
 	(1, 1, 1),
 	(2, 2, 2),
 	(3, 3, 3),
@@ -251,13 +256,14 @@ CREATE TABLE IF NOT EXISTS `personne` (
   `id_personne` int NOT NULL AUTO_INCREMENT,
   `prenom_personne` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
   `nom_personne` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT '0',
-  `sexe_personne` varchar(50) COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
+  `sexe_personne` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
   `date_naissance_personne` date DEFAULT NULL,
   PRIMARY KEY (`id_personne`)
 ) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- Listage des données de la table cinema_loic.personne : ~61 rows (environ)
-INSERT IGNORE INTO `personne` (`id_personne`, `prenom_personne`, `nom_personne`, `sexe_personne`, `date_naissance_personne`) VALUES
+DELETE FROM `personne`;
+INSERT INTO `personne` (`id_personne`, `prenom_personne`, `nom_personne`, `sexe_personne`, `date_naissance_personne`) VALUES
 	(1, 'Leonardo', 'DiCaprio', 'Male', '1974-11-11'),
 	(2, 'Timothée', 'Chalamet', 'Male', '1995-12-27'),
 	(3, 'Robert', 'Pattinson', 'Male', '1986-05-13'),
@@ -330,7 +336,8 @@ CREATE TABLE IF NOT EXISTS `realisateur` (
 ) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- Listage des données de la table cinema_loic.realisateur : ~28 rows (environ)
-INSERT IGNORE INTO `realisateur` (`id_realisateur`, `id_personne`) VALUES
+DELETE FROM `realisateur`;
+INSERT INTO `realisateur` (`id_realisateur`, `id_personne`) VALUES
 	(1, 30),
 	(2, 31),
 	(3, 32),
@@ -363,12 +370,13 @@ INSERT IGNORE INTO `realisateur` (`id_realisateur`, `id_personne`) VALUES
 -- Listage de la structure de table cinema_loic. role
 CREATE TABLE IF NOT EXISTS `role` (
   `id_role` int NOT NULL AUTO_INCREMENT,
-  `nom_role` varchar(50) COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
+  `nom_role` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_role`)
 ) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- Listage des données de la table cinema_loic.role : ~39 rows (environ)
-INSERT IGNORE INTO `role` (`id_role`, `nom_role`) VALUES
+DELETE FROM `role`;
+INSERT INTO `role` (`id_role`, `nom_role`) VALUES
 	(1, 'Paul Atreides'),
 	(2, 'Bruce Wayne/Batman'),
 	(3, 'Tony Stark/Iron Man'),

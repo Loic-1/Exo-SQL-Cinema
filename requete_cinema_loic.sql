@@ -46,10 +46,19 @@ INNER JOIN jouer j ON f.id_film = j.id_film
 INNER JOIN acteur ac ON j.id_acteur = ac.id_acteur
 INNER JOIN personne p ON ac.id_personne = p.id_personne
 WHERE f.id_film = 1
-GROUP BY p.prenom_personne, p.nom_personne, p.sexe_personne
+GROUP BY p.prenom_personne, p.nom_personne, p.sexe_personne;
 
 -- g. Films tournés par un acteur en particulier (id_acteur) avec leur rôle et l’année de sortie (du film le plus récent au plus ancien)
 
+SELECT p.prenom_personne, p.nom_personne, f.titre_film, r.nom_role, f.sortie_film
+FROM film f
+INNER JOIN jouer j ON f.id_film = j.id_film
+INNER JOIN role r ON j.id_role = r.id_role
+INNER JOIN acteur ac ON j.id_acteur = ac.id_acteur
+INNER JOIN personne p ON ac.id_personne = p.id_personne
+WHERE ac.id_acteur = 4
+GROUP BY p.prenom_personne, p.nom_personne, f.titre_film, f.sortie_film, r.nom_role
+ORDER BY  f.sortie_film DESC;
 
 
 -- h. Liste des personnes qui sont à la fois acteurs et réalisateurs
