@@ -4,7 +4,6 @@ namespace Model;
 
 abstract class Connect
 {
-
     const HOST = "localhost";
     const DB = "cinema_loic";
     const USER = "root";
