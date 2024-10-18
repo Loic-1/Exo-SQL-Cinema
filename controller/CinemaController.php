@@ -15,4 +15,12 @@ class CinemaController
 
         require "view/listFilms.php";
     }
+
+    public function listActeurs()
+    {
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->query();
+
+        require "view/listActeurs.php";
+    }
 }
