@@ -38,5 +38,7 @@ if (isset($_GET["action"])) {
             // appelle listActeurs() dans CinemaController.php
             $ctrlCinema->listActeurs();
             break;
+        case "detailActeur":
+            $ctrlCinema->detailActeur();
     }
 }

@@ -36,4 +36,18 @@ class CinemaController
 
         require "view/listActeurs.php";
     }
+
+    public function detailActeur()
+    {
+        $pdo = Connect::seConnecter();
+        $requeteDetailActeur = $pdo->query(
+            "SELECT ac.id_acteur, p.prenom_personne, p.nom_personne, FLOOR(DATEDIFF(CURRENT_DATE, p.date_naissance_personne) / 365) AS age_personne
+            FROM personne p
+            INNER JOIN acteur ac ON p.id_personne = ac.id_personne
+            WHERE ac.id_acteur = 1
+            GROUP BY p.id_personne, ac.id_acteur;"
+        );
+
+        require "view/detailActeur.php";
+    }
 }
