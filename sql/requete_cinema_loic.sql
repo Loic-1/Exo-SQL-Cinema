@@ -143,7 +143,14 @@ ORDER BY f.note_film DESC, sortie_film DESC;
 
 -- listActeursFilm()
 
-
+SELECT p.prenom_personne, p.nom_personne
+FROM personne p
+INNER JOIN acteur ac ON p.id_personne = ac.id_personne
+INNER JOIN jouer j ON ac.id_acteur = j.id_acteur
+INNER JOIN film f ON j.id_film = f.id_film
+WHERE f.id_film = 1
+GROUP BY p.id_personne, ac.id_acteur, f.id_film
+ORDER BY p.nom_personne ASC;
 
 -- listFilmsGenre()
 
@@ -158,7 +165,7 @@ ORDER BY f.note_film DESC, sortie_film DESC;
 SELECT ac.id_acteur, p.prenom_personne, p.nom_personne
 FROM personne p
 INNER JOIN acteur ac ON p.id_personne = ac.id_personne
-ORDER BY p.nom_personne;
+ORDER BY p.nom_personne ASC;
 
 -- listFilmsActeur()
 
