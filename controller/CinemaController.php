@@ -9,9 +9,10 @@ class CinemaController
     public function listFilms()
     {
         $pdo = Connect::seConnecter();
-        $requete = $pdo->query("
-        SELECT titre_film, sortie_film
-        FROM film");
+        $requete = $pdo->query(
+            "SELECT titre_film, YEAR(sortie_film)
+            FROM film;"
+        );
 
         require "view/listFilms.php";
     }
@@ -19,7 +20,12 @@ class CinemaController
     public function listActeurs()
     {
         $pdo = Connect::seConnecter();
-        $requete = $pdo->query();
+        $requete = $pdo->query(
+            "SELECT p.prenom_personne, p.nom_personne
+            FROM personne p
+            INNER JOIN acteur ac ON p.id_personne = ac.id_personne
+            GROUP BY ac.id_acteur;"
+        );
 
         require "view/listActeurs.php";
     }

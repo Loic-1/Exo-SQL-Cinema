@@ -100,6 +100,18 @@ INNER JOIN jouer j ON f.id_film = j.id_film
 INNER JOIN acteur ac ON j.id_acteur = ac.id_acteur
 INNER JOIN personne p ON ac.id_personne = p.id_personne
 GROUP BY ac.id_acteur
-HAVING sumFilms >= 3
+HAVING sumFilms >= 3;
+
+-- listFilms()
+
+SELECT titre_film, YEAR(sortie_film)
+FROM film;
+
+-- listActeurs()
+
+SELECT p.prenom_personne, p.nom_personne
+FROM personne p
+INNER JOIN acteur ac ON p.id_personne = ac.id_personne
+GROUP BY ac.id_acteur;
 
 -- fin
