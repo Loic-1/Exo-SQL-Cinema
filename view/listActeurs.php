@@ -20,16 +20,16 @@
 <table class="uk-table uk-table-striped">
     <thead>
         <tr>
-            <th>TITRE</th>
-            <th>ANNEE SORTIE</th>
+            <th>NOM</th>
+            <th>PRÉNOM</th>
         </tr>
     </thead>
     <tbody>
         <?php
         foreach ($requete->fetchAll() as $film) { ?>
             <tr>
-                <td><?= $film["titre_film"] ?></td>
-                <td><?= $film["annee_sortie"] ?></td>
+                <td><?= $film["prenom_personnage"] ?></td>
+                <td><?= $film["nom_personnage"] ?></td>
             </tr>
         <?php } ?>
     </tbody>

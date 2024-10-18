@@ -29,7 +29,7 @@
         foreach ($requete->fetchAll() as $film) { ?>
             <tr>
                 <td><?= $film["titre_film"] ?></td>
-                <td><?= $film["annee_sortie"] ?></td>
+                <td><?= $film["sortie_film"] ?></td>
             </tr>
         <?php } ?>
     </tbody>
@@ -37,7 +37,7 @@
 
 <?php
 
-$titre = "Liste des films";
-$titre_secondaire = "Liste des films";
+$titre = "Liste des acteurs";
+$titre_secondaire = "Liste des acteurs";
 $contenu = ob_get_clean();
 require "view/template.php";
