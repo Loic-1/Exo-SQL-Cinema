@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Exo-SQL-Cinema</title>
 </head>
 
 <body>
 
-    <a href="view/template.php">Liste Films</a>
+    <a href="view/template.php&action=listFilms">Liste Films</a>
     <a href="view/listFilms.php">Liste Films ($contenu)</a>
-    <a href="view/listActeurs.php&action=listActeurs">Liste Acteurs</a>
+    <a href="view/template.php&action=listActeurs">Liste Acteurs</a>
 
 </body>
 
@@ -38,5 +38,3 @@ if (isset($_GET["action"])) {
             break;
     }
 }
-
-?>
