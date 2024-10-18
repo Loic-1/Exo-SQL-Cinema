@@ -111,7 +111,7 @@ INNER JOIN genre g ON a.id_genre = g.id_genre
 GROUP BY f.id_film, g.id_genre
 ORDER BY f.note_film DESC, sortie_film DESC;
 
--- detailFilms()
+-- detailFilm()
 
 SELECT f.titre_film, YEAR(f.sortie_film) AS sortie_film, f.note_film, g.libelle_genre, CONCAT(FLOOR(f.duree_film / 60), ":", LPAD(f.duree_film % 60, 2, 00)) AS duree_film, p.prenom_personne, p.nom_personne, f.resume_film
 FROM film f
