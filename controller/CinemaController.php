@@ -16,7 +16,7 @@ class CinemaController
             FROM film;"
         );
 
-        // Renvoie à listFilms.php
+        // Renvoie vers listFilms.php
         require "view/listFilms.php";
     }
 

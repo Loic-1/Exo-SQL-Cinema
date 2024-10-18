@@ -9,7 +9,8 @@
 
 <body>
 
-    <a href="view/listFilms.php">Liste Films</a>
+    <a href="view/template.php">Liste Films</a>
+    <a href="view/listFilms.php">Liste Films ($contenu)</a>
     <a href="view/listActeurs.php&action=listActeurs">Liste Acteurs</a>
 
 </body>

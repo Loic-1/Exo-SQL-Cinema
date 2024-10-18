@@ -11,6 +11,7 @@
     </thead>
     <tbody>
         <?php
+        // Met toutes les lignes dans un array
         foreach ($requete->fetchAll() as $film) { ?>
             <tr>
                 <td><?= $film["titre_film"] ?></td>
@@ -22,6 +23,7 @@
 
 <?php
 
+// Définit les paramètres qui serviront dans template.php
 $titre = "Liste des films";
 $titre_secondaire = "Liste des films";
 $contenu = ob_get_clean();
