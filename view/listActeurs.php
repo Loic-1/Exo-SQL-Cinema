@@ -5,8 +5,8 @@
 <table class="uk-table uk-table-striped">
     <thead>
         <tr>
-            <th>NOM</th>
             <th>PRÉNOM</th>
+            <th>NOM</th>
         </tr>
     </thead>
     <tbody>

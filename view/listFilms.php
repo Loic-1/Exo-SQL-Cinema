@@ -7,6 +7,8 @@
         <tr>
             <th>TITRE</th>
             <th>ANNEE SORTIE</th>
+            <th>GENRE</th>
+            <th>NOTE</th>
         </tr>
     </thead>
     <tbody>
@@ -15,7 +17,9 @@
         foreach ($requeteListFilms->fetchAll() as $film) { ?>
             <tr>
                 <td><?= $film["titre_film"] ?></td>
-                <td><?= $film["anneeSortie"] ?></td>
+                <td><?= $film["sortie_film"] ?></td>
+                <td><?= $film["libelle_genre"] ?></td>
+                <td><?= $film["note_film"] ?></td>
             </tr>
         <?php } ?>
     </tbody>
