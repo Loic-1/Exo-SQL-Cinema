@@ -8,6 +8,11 @@
 </head>
 
 <body>
+
+
+
+<a href="index.php?action=listFilms">Liste Films</a>
+    <a href="index.php?action=listActeurs">Liste Acteurs</a>
     <div id="contenu">
         <?=
         // Héberge le contenu qu'il faut (ex: listFilms.php)

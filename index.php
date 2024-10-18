@@ -1,21 +1,3 @@
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exo-SQL-Cinema</title>
-</head>
-
-<body>
-
-    <a href="index.php?action=listFilms">Liste Films</a>
-    <a href="index.php?action=listActeurs">Liste Acteurs</a>
-
-</body>
-
-</html>
-
 <?php
 
 use Controller\CinemaController;
@@ -39,6 +21,7 @@ if (isset($_GET["action"])) {
             $ctrlCinema->listActeurs();
             break;
         case "detailActeur":
-            $ctrlCinema->detailActeur();
+            $ctrlCinema->detailActeur($_GET["id"]);
+            $ctrlCinema->listFilmsActeur($_GET["id"]);
     }
 }

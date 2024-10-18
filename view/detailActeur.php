@@ -6,8 +6,7 @@
     <thead>
         <tr>
             <th style="border: 1px solid black;">ID (tmp)</th>
-            <th style="border: 1px solid black;">PRÉNOM</th>
-            <th style="border: 1px solid black;">NOM</th>
+            <th style="border: 1px solid black;">ACTEUR</th>
         </tr>
     </thead>
     <tbody>
@@ -15,8 +14,14 @@
         foreach ($requeteDetailActeur->fetchAll() as $acteur) { ?>
             <tr>
                 <td style="border: 1px solid black;"><?= $acteur["id_acteur"] ?></td>
-                <td style="border: 1px solid black;"><?= $acteur["prenom_personne"] ?></td>
-                <td style="border: 1px solid black;"><?= $acteur["nom_personne"] ?></td>
+                <td style="border: 1px solid black;"><?= $acteur["prenom_personne"] ?> <?= $acteur["nom_personne"] ?></td>
+            </tr>
+        <?php } ?>
+        <?php
+        foreach ($requeteDetailActeur->fetchAll() as $acteur) { ?>
+            <tr>
+                <td style="border: 1px solid black;"><?= $acteur["id_acteur"] ?></td>
+                <td style="border: 1px solid black;"><?= $acteur["prenom_personne"] ?> <?= $acteur["nom_personne"] ?></td>
             </tr>
         <?php } ?>
     </tbody>
@@ -24,7 +29,7 @@
 
 <?php
 
-$titre = "Liste des acteurs";
+$titre = $acteur["prenom_personne"] . " " . $acteur["nom_personne"];
 $titre_secondaire = "Liste des acteurs";
 $contenu = ob_get_clean();
 require "view/template.php";
