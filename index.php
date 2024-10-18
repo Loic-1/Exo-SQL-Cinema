@@ -32,7 +32,7 @@ if (isset($_GET["action"])) {
     switch ($_GET["action"]) {
         case "listFilms":
             // appelle listFilms() dans CinemaController.php
-            $ctrlCinema->listFilms();
+            $ctrlCinema->listFilms(); // redirect ??
             break;
         case "listActeurs":
             // appelle listActeurs() dans CinemaController.php
