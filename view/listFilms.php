@@ -5,6 +5,7 @@
 <table class="uk-table uk-table-striped">
     <thead>
         <tr>
+            <th>ID (tmp)</th>
             <th>TITRE</th>
             <th>ANNEE SORTIE</th>
             <th>GENRE</th>
@@ -16,6 +17,7 @@
         // Met toutes les lignes dans un array
         foreach ($requeteListFilms->fetchAll() as $film) { ?>
             <tr>
+                <td><?= $film["id_film"] ?></td>
                 <td><?= $film["titre_film"] ?></td>
                 <td><?= $film["sortie_film"] ?></td>
                 <td><?= $film["libelle_genre"] ?></td>

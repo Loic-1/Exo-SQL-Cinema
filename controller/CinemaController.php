@@ -28,7 +28,7 @@ class CinemaController
     {
         $pdo = Connect::seConnecter();
         $requeteListActeurs = $pdo->query(
-            "SELECT p.prenom_personne, p.nom_personne
+            "SELECT ac.id_acteur, p.prenom_personne, p.nom_personne
             FROM personne p
             INNER JOIN acteur ac ON p.id_personne = ac.id_personne
             ORDER BY p.nom_personne;"

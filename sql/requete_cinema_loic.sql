@@ -113,7 +113,14 @@ ORDER BY f.note_film DESC, sortie_film DESC;
 
 -- detailFilms()
 
-
+SELECT f.titre_film, YEAR(f.sortie_film) AS sortie_film, f.note_film, g.libelle_genre, CONCAT(FLOOR(f.duree_film / 60), ":", LPAD(f.duree_film % 60, 2, 00)) AS duree_film, p.prenom_personne, p.nom_personne, f.resume_film
+FROM film f
+INNER JOIN realisateur r ON f.id_realisateur = r.id_realisateur
+INNER JOIN personne p ON r.id_personne = p.id_personne
+INNER JOIN appartenir a ON f.id_film = a.id_film
+INNER JOIN genre g ON a.id_genre = g.id_genre
+WHERE f.id_film = 1
+GROUP BY f.id_film, p.id_personne, g.id_genre;
 
 -- detailReal()
 
@@ -132,13 +139,22 @@ ORDER BY f.note_film DESC, sortie_film DESC;
 
 -- listActeurs()
 
--- SELECT p.prenom_personne, p.nom_personne
--- FROM personne p
--- INNER JOIN acteur ac ON p.id_personne = ac.id_personne
--- ORDER BY p.nom_personne;
+SELECT ac.id_acteur, p.prenom_personne, p.nom_personne
+FROM personne p
+INNER JOIN acteur ac ON p.id_personne = ac.id_personne
+ORDER BY p.nom_personne;
 
 -- listFilmsActeur()
 
-
+SELECT f.id_film, f.titre_film, YEAR(f.sortie_film) AS sortie_film, g.libelle_genre, f.note_film, r.nom_role
+FROM acteur ac
+INNER JOIN jouer j ON ac.id_acteur = j.id_acteur
+INNER JOIN role r ON j.id_role = r.id_role
+INNER JOIN film f ON j.id_film = f.id_film
+INNER JOIN appartenir a ON f.id_film = a.id_film
+INNER JOIN genre g ON a.id_genre = g.id_genre
+WHERE ac.id_acteur = 1
+GROUP BY f.id_film, g.id_genre, r.id_role
+ORDER BY f.note_film DESC, sortie_film DESC;
 
 -- fin

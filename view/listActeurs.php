@@ -5,6 +5,7 @@
 <table class="uk-table uk-table-striped">
     <thead>
         <tr>
+            <th>ID (tmp)</th>
             <th>PRÉNOM</th>
             <th>NOM</th>
         </tr>
@@ -13,6 +14,7 @@
         <?php
         foreach ($requeteListActeurs->fetchAll() as $acteur) { ?>
             <tr>
+                <td><?= $acteur["id_acteur"] ?></td>
                 <td><?= $acteur["prenom_personne"] ?></td>
                 <td><?= $acteur["nom_personne"] ?></td>
             </tr>
