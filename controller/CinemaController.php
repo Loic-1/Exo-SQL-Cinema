@@ -8,12 +8,15 @@ class CinemaController
 {
     public function listFilms()
     {
+        // Se connecte à la BDD
         $pdo = Connect::seConnecter();
+        // Effectue la requête spécifique
         $requete = $pdo->query(
             "SELECT titre_film, YEAR(sortie_film)
             FROM film;"
         );
 
+        // Renvoie à listFilms.php
         require "view/listFilms.php";
     }
 
