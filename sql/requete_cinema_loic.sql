@@ -104,14 +104,15 @@ HAVING sumFilms >= 3;
 
 -- listFilms()
 
-SELECT titre_film, YEAR(sortie_film)
-FROM film;
+SELECT f.titre_film, YEAR(f.sortie_film)
+FROM film f
+ORDER BY f.sortie_film DESC;
 
 -- listActeurs()
 
 SELECT p.prenom_personne, p.nom_personne
 FROM personne p
 INNER JOIN acteur ac ON p.id_personne = ac.id_personne
-GROUP BY ac.id_acteur;
+ORDER BY p.nom_personne;
 
 -- fin
