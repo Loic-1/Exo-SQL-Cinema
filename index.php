@@ -9,9 +9,8 @@
 
 <body>
 
-    <a href="view/template.php&action=listFilms">Liste Films</a>
-    <a href="view/listFilms.php">Liste Films ($contenu)</a>
-    <a href="view/template.php&action=listActeurs">Liste Acteurs</a>
+    <a href="index.php?action=listFilms">Liste Films</a>
+    <a href="index.php?action=listActeurs">Liste Acteurs</a>
 
 </body>
 
@@ -24,6 +23,9 @@ use Controller\CinemaController;
 spl_autoload_register(function ($class_name) {
     include $class_name . '.php';
 });
+
+
+$ctrlCinema = new CinemaController();
 
 // vérifie si le paramètre action existe
 if (isset($_GET["action"])) {

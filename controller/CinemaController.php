@@ -11,8 +11,8 @@ class CinemaController
         // Se connecte à la BDD
         $pdo = Connect::seConnecter();
         // Effectue la requête spécifique
-        $requete = $pdo->query(
-            "SELECT titre_film, YEAR(sortie_film)
+        $requeteListFilms = $pdo->query(
+            "SELECT titre_film, YEAR(sortie_film) AS anneeSortie
             FROM film;"
         );
 
@@ -23,7 +23,7 @@ class CinemaController
     public function listActeurs()
     {
         $pdo = Connect::seConnecter();
-        $requete = $pdo->query(
+        $requeteListActeurs = $pdo->query(
             "SELECT p.prenom_personne, p.nom_personne
             FROM personne p
             INNER JOIN acteur ac ON p.id_personne = ac.id_personne

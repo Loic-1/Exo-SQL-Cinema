@@ -1,6 +1,6 @@
 <?php ob_start() ?>
 
-<p class="uk-label uk-label-warning">Il y a ?= $requete->rowCount() ?></p>
+<p class="uk-label uk-label-warning">Il y a <?= $requeteListActeurs->rowCount() ?> acteurs</p>
 
 <table class="uk-table uk-table-striped">
     <thead>
@@ -11,10 +11,10 @@
     </thead>
     <tbody>
         <?php
-        foreach ($requete->fetchAll() as $film) { ?>
+        foreach ($requeteListActeurs->fetchAll() as $acteur) { ?>
             <tr>
-                <td><?= $film["prenom_personnage"] ?></td>
-                <td><?= $film["nom_personnage"] ?></td>
+                <td><?= $acteur["prenom_personnage"] ?></td>
+                <td><?= $acteur["nom_personnage"] ?></td>
             </tr>
         <?php } ?>
     </tbody>
