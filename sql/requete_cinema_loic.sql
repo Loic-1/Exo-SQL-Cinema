@@ -154,7 +154,12 @@ ORDER BY p.nom_personne ASC;
 
 -- listFilmsGenre()
 
-
+SELECT f.id_film, f.titre_film, YEAR(f.sortie_film) AS sortie_film, f.note_film
+FROM film f
+INNER JOIN appartenir a ON f.id_film = a.id_film
+INNER JOIN genre g ON a.id_genre = g.id_genre
+WHERE g.id_genre = 1
+ORDER BY f.note_film DESC, sortie_film DESC;
 
 -- detailActeur()
 
