@@ -104,7 +104,7 @@
 
 -- listFilms()
 
-SELECT f.id_film, f.titre_film, YEAR(f.sortie_film) AS sortie_film, g.libelle_genre, f.note_film
+SELECT g.id_genre, f.id_film, f.titre_film, YEAR(f.sortie_film) AS sortie_film, g.libelle_genre, f.note_film
 FROM film f
 INNER JOIN appartenir a ON f.id_film = a.id_film
 INNER JOIN genre g ON a.id_genre = g.id_genre
@@ -113,7 +113,7 @@ ORDER BY f.note_film DESC, sortie_film DESC;
 
 -- detailFilm()
 
-SELECT f.titre_film, YEAR(f.sortie_film) AS sortie_film, f.note_film, g.libelle_genre, CONCAT(FLOOR(f.duree_film / 60), ":", LPAD(f.duree_film % 60, 2, 00)) AS duree_film, p.prenom_personne, p.nom_personne, f.resume_film
+SELECT g.id_genre, f.titre_film, YEAR(f.sortie_film) AS sortie_film, f.note_film, g.libelle_genre, CONCAT(FLOOR(f.duree_film / 60), ":", LPAD(f.duree_film % 60, 2, 00)) AS duree_film, p.prenom_personne, p.nom_personne, f.resume_film
 FROM film f
 INNER JOIN realisateur r ON f.id_realisateur = r.id_realisateur
 INNER JOIN personne p ON r.id_personne = p.id_personne
@@ -124,7 +124,7 @@ GROUP BY f.id_film, p.id_personne, g.id_genre;
 
 -- detailReal()
 
-SELECT p.prenom_personne, p.nom_personne
+SELECT g.id_genre, p.prenom_personne, p.nom_personne
 FROM personne p
 INNER JOIN realisateur r ON p.id_personne = r.id_personne
 WHERE r.id_realisateur = 1
@@ -132,7 +132,7 @@ GROUP BY p.id_personne;
 
 -- listFilmsReal()
 
-SELECT f.id_film, f.titre_film, YEAR(f.sortie_film) AS sortie_film, g.libelle_genre, f.note_film
+SELECT g.id_genre, f.id_film, f.titre_film, YEAR(f.sortie_film) AS sortie_film, g.libelle_genre, f.note_film
 FROM film f
 INNER JOIN realisateur r ON f.id_realisateur = r.id_realisateur
 INNER JOIN appartenir a ON f.id_film = a.id_film
@@ -154,7 +154,7 @@ ORDER BY p.nom_personne ASC;
 
 -- listFilmsGenre()
 
-SELECT f.id_film, f.titre_film, YEAR(f.sortie_film) AS sortie_film, f.note_film
+SELECT g.libelle_genre, f.id_film, f.titre_film, YEAR(f.sortie_film) AS sortie_film, f.note_film
 FROM film f
 INNER JOIN appartenir a ON f.id_film = a.id_film
 INNER JOIN genre g ON a.id_genre = g.id_genre

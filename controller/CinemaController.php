@@ -12,7 +12,7 @@ class CinemaController
         $pdo = Connect::seConnecter();
         // Effectue la requête spécifique
         $requeteListFilms = $pdo->query(
-            "SELECT f.id_film, f.titre_film, YEAR(f.sortie_film) AS sortie_film, g.libelle_genre, f.note_film
+            "SELECT g.id_genre, f.id_film, f.titre_film, YEAR(f.sortie_film) AS sortie_film, g.libelle_genre, f.note_film
             FROM film f
             INNER JOIN appartenir a ON f.id_film = a.id_film
             INNER JOIN genre g ON a.id_genre = g.id_genre
@@ -68,7 +68,7 @@ class CinemaController
     {
         $pdo = Connect::seConnecter();
         $requeteDetailFilm = $pdo->query(
-            "SELECT r.id_realisateur, f.titre_film, YEAR(f.sortie_film) AS sortie_film, f.note_film, g.libelle_genre, p.prenom_personne, p.nom_personne, f.resume_film
+            "SELECT g.id_genre, r.id_realisateur, f.titre_film, YEAR(f.sortie_film) AS sortie_film, f.note_film, g.libelle_genre, p.prenom_personne, p.nom_personne, f.resume_film
         FROM film f
         INNER JOIN realisateur r ON f.id_realisateur = r.id_realisateur
         INNER JOIN personne p ON r.id_personne = p.id_personne
@@ -104,7 +104,7 @@ class CinemaController
         );
 
         $filmographie = $pdo->query(
-            "SELECT f.id_film, f.titre_film, YEAR(f.sortie_film) AS sortie_film, g.libelle_genre, f.note_film
+            "SELECT g.id_genre, f.id_film, f.titre_film, YEAR(f.sortie_film) AS sortie_film, g.libelle_genre, f.note_film
             FROM film f
             INNER JOIN realisateur r ON f.id_realisateur = r.id_realisateur
             INNER JOIN appartenir a ON f.id_film = a.id_film
@@ -115,5 +115,20 @@ class CinemaController
         );
 
         require "view/detailReal.php";
+    }
+
+    public function listFilmsGenre($id)
+    {
+        $pdo = Connect::seConnecter();
+        $requeteListFilmsGenre = $pdo->query(
+            "SELECT g.libelle_genre, f.id_film, f.titre_film, YEAR(f.sortie_film) AS sortie_film, f.note_film
+            FROM film f
+            INNER JOIN appartenir a ON f.id_film = a.id_film
+            INNER JOIN genre g ON a.id_genre = g.id_genre
+            WHERE g.id_genre = $id
+            ORDER BY f.note_film DESC, sortie_film DESC;"
+        );
+
+        require "view/listFilmsGenre.php";
     }
 }

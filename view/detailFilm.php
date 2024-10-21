@@ -17,7 +17,7 @@
         <tr>
             <td style="border: 1px solid black;"><?= $film["titre_film"] ?></td>
             <td style="border: 1px solid black;"><?= $film["sortie_film"] ?></td>
-            <td style="border: 1px solid black;"><?= $film["libelle_genre"] ?></td>
+            <td style="border: 1px solid black;"><a href="index.php?action=listFilmsGenre&id=<?= $film["id_genre"] ?>"><?= $film["libelle_genre"] ?></a></td>
             <td style="border: 1px solid black;"><?= $film["note_film"] ?></td>
             <td style="border: 1px solid black;"><a href="index.php?action=detailReal&id=<?= $film["id_realisateur"] ?>"><?= $film["prenom_personne"] ?> <?= $film["nom_personne"] ?></a></td>
             <td style="border: 1px solid black;"><?= $film["resume_film"] ?></td>

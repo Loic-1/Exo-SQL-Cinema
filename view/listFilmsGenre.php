@@ -1,21 +1,7 @@
 <?php ob_start(); ?>
 
-<?php $real = $requeteDetailReal->fetch(); ?>
+<?php $films = $requeteListFilmsGenre->fetchAll(); ?>
 
-<table class="uk-table uk-table-striped" style="border: 1px solid black; border-collapse: collapse;">
-    <thead>
-        <tr>
-            <th style="border: 1px solid black;">REALISATEUR</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style="border: 1px solid black;"><?= $real["prenom_personne"] ?> <?= $real["nom_personne"] ?></td>
-        </tr>
-    </tbody>
-</table>
-
-<?php $films = $filmographie->fetchAll() ?>
 
 <table class="uk-table uk-table-striped" style="border: 1px solid black; border-collapse: collapse;">
     <thead>
@@ -28,12 +14,12 @@
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($films as $film) { ?>
+        <?php foreach ($films as $film) { /*f.id_film, f.titre_film, YEAR(f.sortie_film) AS sortie_film, g.libelle_genre, f.note_film, r.nom_role*/ ?>
             <tr>
                 <td style="border: 1px solid black;"><?= $film["id_film"] ?></td>
                 <td style="border: 1px solid black;"><a href="index.php?action=detailFilm&id=<?= $film["id_film"] ?>"><?= $film["titre_film"] ?></a></td>
                 <td style="border: 1px solid black;"><?= $film["sortie_film"] ?></td>
-                <td style="border: 1px solid black;"><a href="index.php?action=listFilmsGenre&id=<?= $film["id_genre"] ?>"><?= $film["libelle_genre"] ?></a></td>
+                <td style="border: 1px solid black;"><?= $film["libelle_genre"] ?></td>
                 <td style="border: 1px solid black;"><?= $film["note_film"] ?></td>
             </tr>
         <?php } ?>
@@ -41,6 +27,6 @@
 </table>
 
 <?php
-$titre = $real["prenom_personne"] . " " . $real["nom_personne"];
+$titre = $film["libelle_genre"];
 $contenu = ob_get_clean();
 require "view/template.php";
