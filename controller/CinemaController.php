@@ -131,4 +131,8 @@ class CinemaController
 
         require "view/listFilmsGenre.php";
     }
+
+    public function default () {
+        require "view/default.php";
+    }
 }

@@ -32,8 +32,7 @@ if (isset($_GET["action"])) {
         case "listFilmsGenre":
             $ctrlCinema->listFilmsGenre($_GET["id"]);
             break;
-        
     }
+} else { // comme ça la liste des films n'est affichée que s'il n'y a rien d'autre
+    $ctrlCinema->default();
 }
-
-$ctrlCinema->listFilms();
