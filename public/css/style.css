@@ -7,6 +7,7 @@
 :root {
   --main-header-background-color: #ffcd00;
   --main-body-background-color: #f2f3f3;
+  --affiche-font-color: #fafafa;
 }
 
 .main_header {
@@ -54,16 +55,28 @@
   position: relative;
 
   display: flex;
+  gap: 15px;
   flex-direction: column;
   align-items: center;
 
   width: 200px;
-  aspect-ratio: 3/4;
 
-  padding: 10px;
+  text-align: center;
+}
+
+.film_affiche {
+  aspect-ratio: 3/4;
   border: 1px solid #ddd;
   border-radius: 5px;
-  text-align: center;
+  overflow: hidden;
+  width: 100%;
+}
+
+.film_affiche img {
+  width: 100%; /* L'image prend toute la largeur de .film_affiche */
+  height: 100%; /* L'image prend toute la hauteur de .film_affiche */
+  object-fit: cover; /* L'image est ajustée sans distorsion, coupant les bords si nécessaire */
+  object-position: center; /* Centrer l'image en cas de découpe */
 }
 
 .note_film {
@@ -76,6 +89,21 @@
 .film_infos {
   position: absolute;
   bottom: 0;
+  color: var(--affiche-font-color);
+
+  padding: 5px;
+  margin: 5px;
+  background-color: rgba(0, 0, 0, 0.5); /* Fond noir transparent à 50% */
+  border-radius: 5px; /* Optionnel : ajoute des coins arrondis */
+}
+
+.film_infos a {
+  color: var(--affiche-font-color);
+  text-decoration: none;
+}
+
+.film_infos a:hover {
+    text-decoration: underline;
 }
 
 /*TMP*/
@@ -83,7 +111,6 @@
 .main_header,
 .body,
 .main_header_nav,
-.film,
 .figure,
 .note_film {
   outline: auto;

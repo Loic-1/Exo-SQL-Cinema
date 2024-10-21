@@ -6,7 +6,7 @@
         <div class="film">
             <div class="film_affiche">
                 <figure>
-                    <img src="#" alt="">
+                    <a href="index.php?action=detailFilm&id=<?= $film["id_film"] ?>"><img src="public/img/tgm.png" alt=""></a>
                 </figure>
                 <div class="note_film">
                     <?= $film["note_film"] ?>
