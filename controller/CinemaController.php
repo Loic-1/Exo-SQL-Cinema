@@ -68,7 +68,7 @@ class CinemaController
     {
         $pdo = Connect::seConnecter();
         $requeteDetailFilm = $pdo->query(
-        "SELECT f.id_film, f.titre_film, YEAR(f.sortie_film) AS sortie_film, f.note_film, g.libelle_genre, p.prenom_personne, p.nom_personne, f.resume_film
+        "SELECT f.titre_film, YEAR(f.sortie_film) AS sortie_film, f.note_film, g.libelle_genre, p.prenom_personne, p.nom_personne, f.resume_film
         FROM film f
         INNER JOIN realisateur r ON f.id_realisateur = r.id_realisateur
         INNER JOIN personne p ON r.id_personne = p.id_personne
@@ -77,6 +77,17 @@ class CinemaController
         WHERE f.id_film = $id
         GROUP BY f.id_film, p.id_personne, g.id_genre;"
         );
+
+        $casting = $pdo->query(
+            "SELECT ac.id_acteur, p.prenom_personne, p.nom_personne
+            FROM personne p
+            INNER JOIN acteur ac ON p.id_personne = ac.id_personne
+            INNER JOIN jouer j ON ac.id_acteur = j.id_acteur
+            INNER JOIN film f ON j.id_film = f.id_film
+            WHERE f.id_film = $id
+            GROUP BY p.id_personne, ac.id_acteur, f.id_film
+            ORDER BY p.nom_personne ASC;"
+    );
 
         require "view/detailFilm.php";
     }

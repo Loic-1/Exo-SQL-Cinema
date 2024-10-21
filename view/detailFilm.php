@@ -5,7 +5,6 @@
 <table class="uk-table uk-table-striped" style="border: 1px solid black; border-collapse: collapse;">
     <thead>
         <tr>
-            <th style="border: 1px solid black;">ID (tmp)</th>
             <th style="border: 1px solid black;">TITRE</th>
             <th style="border: 1px solid black;">SORTIE</th>
             <th style="border: 1px solid black;">NOTE</th>
@@ -16,7 +15,6 @@
     </thead>
     <tbody>
         <tr>
-            <td style="border: 1px solid black;"><?= $film["id_film"] ?></td>
             <td style="border: 1px solid black;"><?= $film["titre_film"] ?></td>
             <td style="border: 1px solid black;"><?= $film["sortie_film"] ?></td>
             <td style="border: 1px solid black;"><?= $film["note_film"] ?></td>
@@ -24,6 +22,23 @@
             <td style="border: 1px solid black;"><?= $film["prenom_personne"] ?> <?= $film["nom_personne"] ?></td>
             <td style="border: 1px solid black;"><?= $film["resume_film"] ?></td>
         </tr>
+    </tbody>
+</table>
+
+<?php $acteurs = $casting->fetchAll() ?>
+
+<table class="uk-table uk-table-striped" style="border: 1px solid black; border-collapse: collapse;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid black;">ACTEUR</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($acteurs as $acteur) { /*f.id_film, f.titre_film, YEAR(f.sortie_film) AS sortie_film, g.libelle_genre, f.note_film, r.nom_role*/ ?>
+            <tr>
+                <td style="border: 1px solid black;"><a href="index.php?action=detailActeur&id=<?= $acteur["id_acteur"] ?>"><?= $acteur["prenom_personne"] ?> <?= $acteur["nom_personne"] ?></a></td>
+            </tr>
+        <?php } ?>
     </tbody>
 </table>
 
