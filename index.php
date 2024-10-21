@@ -22,6 +22,5 @@ if (isset($_GET["action"])) {
             break;
         case "detailActeur":
             $ctrlCinema->detailActeur($_GET["id"]);
-            $ctrlCinema->listFilmsActeur($_GET["id"]);
     }
 }

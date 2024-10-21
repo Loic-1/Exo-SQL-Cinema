@@ -48,13 +48,7 @@ class CinemaController
             GROUP BY p.id_personne, ac.id_acteur;"
         );
 
-        require "view/detailActeur.php";
-    }
-
-    public function listFilmsActeur($id)
-    {
-        $pdo = Connect::seConnecter();
-        $requeteListFilmsActeur = $pdo->query(
+        $filmographie = $pdo->query(
             "SELECT f.id_film, f.titre_film, YEAR(f.sortie_film) AS sortie_film, g.libelle_genre, f.note_film, r.nom_role
             FROM acteur ac
             INNER JOIN jouer j ON ac.id_acteur = j.id_acteur

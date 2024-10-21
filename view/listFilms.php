@@ -2,14 +2,14 @@
 
 <p class="uk-label uk-label-warning">Il y a <?= $requeteListFilms->rowCount() ?> films</p>
 
-<table class="uk-table uk-table-striped">
+<table class="uk-table uk-table-striped" style="border: 1px solid black; border-collapse: collapse;">
     <thead>
         <tr>
-            <th>ID (tmp)</th>
-            <th>TITRE</th>
-            <th>ANNEE SORTIE</th>
-            <th>GENRE</th>
-            <th>NOTE</th>
+            <th style="border: 1px solid black;">ID (tmp)</th>
+            <th style="border: 1px solid black;">TITRE</th>
+            <th style="border: 1px solid black;">ANNEE SORTIE</th>
+            <th style="border: 1px solid black;">GENRE</th>
+            <th style="border: 1px solid black;">NOTE</th>
         </tr>
     </thead>
     <tbody>
@@ -17,11 +17,11 @@
         // Met toutes les lignes dans un array
         foreach ($requeteListFilms->fetchAll() as $film) { ?>
             <tr>
-                <td><?= $film["id_film"] ?></td>
-                <td><?= $film["titre_film"] ?></td>
-                <td><?= $film["sortie_film"] ?></td>
-                <td><?= $film["libelle_genre"] ?></td>
-                <td><?= $film["note_film"] ?></td>
+                <td style="border: 1px solid black;"><?= $film["id_film"] ?></td>
+                <td style="border: 1px solid black;"><?= $film["titre_film"] ?></td>
+                <td style="border: 1px solid black;"><?= $film["sortie_film"] ?></td>
+                <td style="border: 1px solid black;"><?= $film["libelle_genre"] ?></td>
+                <td style="border: 1px solid black;"><?= $film["note_film"] ?></td>
             </tr>
         <?php } ?>
     </tbody>
