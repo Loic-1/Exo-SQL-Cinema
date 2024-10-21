@@ -17,16 +17,16 @@
 }
 
 .main_header_nav {
-    width: 50%;
+  width: 50%;
 }
 
 .main_header_nav ul {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 .main_header_nav li {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 .body {
@@ -35,10 +35,56 @@
   min-height: 100vh;
 }
 
+/*listFilms.php*/
+.film_container {
+  padding: 50px 20px 20px 20px;
+
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(200px, 1fr)
+  ); /* Colonnes adaptatives */
+  column-gap: 20px; /* Espacement entre les films */
+  row-gap: 50px;
+
+  justify-items: center;
+}
+
+.film {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 200px;
+  aspect-ratio: 3/4;
+
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.note_film {
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.5); /* Fond noir transparent à 50% */
+  color: white; /* Texte en blanc pour le contraste */
+  border-radius: 5px; /* Optionnel : ajoute des coins arrondis */
+}
+
+.film_infos {
+  position: absolute;
+  bottom: 0;
+}
+
 /*TMP*/
 
 .main_header,
 .body,
-.main_header_nav {
+.main_header_nav,
+.film,
+.figure,
+.note_film {
   outline: auto;
 }
