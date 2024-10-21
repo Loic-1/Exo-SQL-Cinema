@@ -32,5 +32,8 @@ if (isset($_GET["action"])) {
         case "listFilmsGenre":
             $ctrlCinema->listFilmsGenre($_GET["id"]);
             break;
+        
     }
 }
+
+$ctrlCinema->listFilms();
