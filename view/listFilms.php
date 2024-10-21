@@ -18,7 +18,7 @@
         foreach ($requeteListFilms->fetchAll() as $film) { ?>
             <tr>
                 <td style="border: 1px solid black;"><?= $film["id_film"] ?></td>
-                <td style="border: 1px solid black;"><?= $film["titre_film"] ?></td>
+                <td style="border: 1px solid black;"><a href="index.php?action=detailFilm&id=<?= $film["id_film"] ?>"><?= $film["titre_film"] ?></a></td>
                 <td style="border: 1px solid black;"><?= $film["sortie_film"] ?></td>
                 <td style="border: 1px solid black;"><?= $film["libelle_genre"] ?></td>
                 <td style="border: 1px solid black;"><?= $film["note_film"] ?></td>

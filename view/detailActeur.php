@@ -14,7 +14,7 @@
         <tr>
             <td style="border: 1px solid black;"><?= $acteur["id_acteur"] ?></td>
             <td style="border: 1px solid black;"><?= $acteur["prenom_personne"] ?> <?= $acteur["nom_personne"] ?></td>
-            <td style="border: 1px solid black;"><?= $acteur["age_personne"] ?> ans</td>
+            <td style="border: 1px solid black;"><?= $acteur["age_personne"] ?></td>
         </tr>
     </tbody>
 </table>
