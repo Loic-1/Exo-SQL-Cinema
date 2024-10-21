@@ -68,7 +68,7 @@ class CinemaController
     {
         $pdo = Connect::seConnecter();
         $requeteDetailFilm = $pdo->query(
-        "SELECT r.id_realisateur, f.titre_film, YEAR(f.sortie_film) AS sortie_film, f.note_film, g.libelle_genre, p.prenom_personne, p.nom_personne, f.resume_film
+            "SELECT r.id_realisateur, f.titre_film, YEAR(f.sortie_film) AS sortie_film, f.note_film, g.libelle_genre, p.prenom_personne, p.nom_personne, f.resume_film
         FROM film f
         INNER JOIN realisateur r ON f.id_realisateur = r.id_realisateur
         INNER JOIN personne p ON r.id_personne = p.id_personne
@@ -87,7 +87,7 @@ class CinemaController
             WHERE f.id_film = $id
             GROUP BY p.id_personne, ac.id_acteur, f.id_film
             ORDER BY p.nom_personne ASC;"
-    );
+        );
 
         require "view/detailFilm.php";
     }
@@ -96,11 +96,22 @@ class CinemaController
     {
         $pdo = Connect::seConnecter();
         $requeteDetailReal = $pdo->query(
-        "SELECT p.prenom_personne, p.nom_personne
-        FROM personne p
-        INNER JOIN realisateur r ON p.id_personne = r.id_personne
-        WHERE r.id_realisateur = $id
-        GROUP BY p.id_personne;"
+            "SELECT p.prenom_personne, p.nom_personne
+            FROM personne p
+            INNER JOIN realisateur r ON p.id_personne = r.id_personne
+            WHERE r.id_realisateur = $id
+            GROUP BY p.id_personne;"
+        );
+
+        $filmographie = $pdo->query(
+            "SELECT f.id_film, f.titre_film, YEAR(f.sortie_film) AS sortie_film, g.libelle_genre, f.note_film
+            FROM film f
+            INNER JOIN realisateur r ON f.id_realisateur = r.id_realisateur
+            INNER JOIN appartenir a ON f.id_film = a.id_film
+            INNER JOIN genre g ON a.id_genre = g.id_genre
+            WHERE r.id_realisateur = $id
+            GROUP BY r.id_realisateur, f.id_film, g.id_genre
+            ORDER BY f.note_film DESC, sortie_film DESC;"
         );
 
         require "view/detailReal.php";

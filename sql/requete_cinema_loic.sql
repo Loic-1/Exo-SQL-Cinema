@@ -132,7 +132,7 @@ GROUP BY p.id_personne;
 
 -- listFilmsReal()
 
-SELECT f.titre_film, YEAR(f.sortie_film) AS sortie_film, g.libelle_genre, f.note_film
+SELECT f.id_film, f.titre_film, YEAR(f.sortie_film) AS sortie_film, g.libelle_genre, f.note_film
 FROM film f
 INNER JOIN realisateur r ON f.id_realisateur = r.id_realisateur
 INNER JOIN appartenir a ON f.id_film = a.id_film
