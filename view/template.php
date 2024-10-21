@@ -9,16 +9,28 @@
 </head>
 
 <body>
-
-
-    <a href="index.php">Home</a>
-    <a href="index.php?action=listFilms">Liste Films</a>
-    <a href="index.php?action=listActeurs">Liste Acteurs</a>
-    <div id="contenu">
-        <?=
-        // Héberge le contenu qu'il faut (ex: listFilms.php)
-        $contenu
-        ?>
+    <div class="body">
+        <header class="main_header">
+            <nav class="main_header_nav">
+                <ul>
+                    <li>
+                        <a href="index.php">Home</a>
+                    </li>
+                    <li>
+                        <a href="index.php?action=listFilms">Liste Films</a>
+                    </li>
+                    <li>
+                        <a href="index.php?action=listActeurs">Liste Acteurs</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <div id="contenu">
+            <?=
+            // Héberge le contenu qu'il faut (ex: listFilms.php)
+            $contenu
+            ?>
+        </div>
     </div>
 </body>
 

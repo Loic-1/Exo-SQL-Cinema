@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-header-background-color: #ffcd00;
+  --main-body-background-color: #f2f3f3;
+}
+
+.main_header {
+  background-color: var(--main-header-background-color);
+
+  display: flex;
+  justify-content: center;
+}
+
+.main_header_nav {
+    width: 50%;
+}
+
+.main_header_nav ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+.main_header_nav li {
+    list-style-type: none;
+}
+
+.body {
+  background-color: var(--main-body-background-color);
+
+  min-height: 100vh;
+}
+
+/*TMP*/
+
+.main_header,
+.body,
+.main_header_nav {
+  outline: auto;
+}
