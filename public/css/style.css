@@ -187,7 +187,7 @@
 
 /*detailActeur.php*/
 
-.main_acteur h2{
+.main_acteur h2 {
   margin-bottom: 20px;
 }
 
@@ -311,3 +311,91 @@
 .figure {
   outline: auto;
 } */
+
+
+
+@media screen and (max-width: 480px) {
+
+  /*0px à 480px*/
+  .film_container {
+    padding: 50px 20px 20px 20px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill,
+        minmax(150px, 1fr));
+    /* Colonnes adaptatives */
+    column-gap: 20px;
+    /* Espacement entre les films */
+    row-gap: 50px;
+
+    justify-items: center;
+  }
+
+  .film {
+    position: relative;
+
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+    align-items: center;
+
+    width: 150px;
+
+    text-align: center;
+  }
+
+  .main_header {
+    background-color: var(--main-header-background-color);
+
+    display: flex;
+    justify-content: center;
+
+    height: fit-content;
+
+    padding: 10px;
+
+    font-family: var(--main-font-family);
+    font-weight: bold;
+  }
+
+  .main_header_nav ul {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .film_cont {
+    padding: 50px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    font-family: var(--main-font-family);
+  }
+
+  .acteur_cont {
+    padding: 50px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    font-family: var(--main-font-family);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /*481px à 768px*/
+
+}
+
+@media screen and (max-width: 1279px) {
+  /*771px à 1279px*/
+
+}
+
+@media screen and (min-width: 1280) {
+  /*width > 1279px*/
+
+}
