@@ -113,7 +113,7 @@ ORDER BY f.note_film DESC, sortie_film DESC;
 
 -- detailFilm()
 
-SELECT g.id_genre, f.titre_film, YEAR(f.sortie_film) AS sortie_film, f.note_film, g.libelle_genre, CONCAT(FLOOR(f.duree_film / 60), ":", LPAD(f.duree_film % 60, 2, 00)) AS duree_film, p.prenom_personne, p.nom_personne, f.resume_film
+SELECT g.id_genre, f.titre_film, YEAR(f.sortie_film) AS sortie_film, f.sortie_film AS date_sortie_film, f.note_film, g.libelle_genre, CONCAT(FLOOR(f.duree_film / 60), ":", LPAD(f.duree_film % 60, 2, 00)) AS duree_film, p.prenom_personne, p.nom_personne, r.id_realisateur, f.resume_film, f.url_affiche_film, p.url_affiche_personne
 FROM film f
 INNER JOIN realisateur r ON f.id_realisateur = r.id_realisateur
 INNER JOIN personne p ON r.id_personne = p.id_personne
@@ -143,7 +143,7 @@ ORDER BY f.note_film DESC, sortie_film DESC;
 
 -- listActeursFilm()
 
-SELECT ac.id_acteur, p.prenom_personne, p.nom_personne
+SELECT ac.id_acteur, p.prenom_personne, p.nom_personne, p.url_affiche_personne
 FROM personne p
 INNER JOIN acteur ac ON p.id_personne = ac.id_personne
 INNER JOIN jouer j ON ac.id_acteur = j.id_acteur

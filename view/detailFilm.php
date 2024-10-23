@@ -1,46 +1,66 @@
 <?php ob_start(); ?>
 
-<?php $film = $requeteDetailFilm->fetch(); ?>
+<div class="film_cont">
+    <?php $film = $requeteDetailFilm->fetch(); ?>
 
-<table class="uk-table uk-table-striped" style="border: 1px solid black; border-collapse: collapse;">
-    <thead>
-        <tr>
-            <th style="border: 1px solid black;">TITRE</th>
-            <th style="border: 1px solid black;">SORTIE</th>
-            <th style="border: 1px solid black;">GENRE</th>
-            <th style="border: 1px solid black;">NOTE</th>
-            <th style="border: 1px solid black;">REALISATEUR</th>
-            <th style="border: 1px solid black;">RESUME</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style="border: 1px solid black;"><?= $film["titre_film"] ?></td>
-            <td style="border: 1px solid black;"><?= $film["sortie_film"] ?></td>
-            <td style="border: 1px solid black;"><a href="index.php?action=listFilmsGenre&id=<?= $film["id_genre"] ?>"><?= $film["libelle_genre"] ?></a></td>
-            <td style="border: 1px solid black;"><?= $film["note_film"] ?></td>
-            <td style="border: 1px solid black;"><a href="index.php?action=detailReal&id=<?= $film["id_realisateur"] ?>"><?= $film["prenom_personne"] ?> <?= $film["nom_personne"] ?></a></td>
-            <td style="border: 1px solid black;"><?= $film["resume_film"] ?></td>
-        </tr>
-    </tbody>
-</table>
+    <div class="main_film">
+        <h2><?= $film["titre_film"] ?></h2>
 
-<?php $acteurs = $casting->fetchAll() ?>
+        <div class="affiche_film">
+            <figure>
+                <img src="<?= $film["url_affiche_film"] ?>" alt="">
+            </figure>
+        </div>
+    </div>
+    <div class="desc_film">
+        <h3>Résumé</h3>
+        <p><?= $film["resume_film"] == NULL ? "Ce film n'a pas de résumé." : $film["resume_film"] ?>
+        </p>
+    </div>
+</div>
 
-<table class="uk-table uk-table-striped" style="border: 1px solid black; border-collapse: collapse;">
-    <thead>
-        <tr>
-            <th style="border: 1px solid black;">ACTEUR</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($acteurs as $acteur) { /*f.id_film, f.titre_film, YEAR(f.sortie_film) AS sortie_film, g.libelle_genre, f.note_film, r.nom_role*/ ?>
-            <tr>
-                <td style="border: 1px solid black;"><a href="index.php?action=detailActeur&id=<?= $acteur["id_acteur"] ?>"><?= $acteur["prenom_personne"] ?> <?= $acteur["nom_personne"] ?></a></td>
-            </tr>
-        <?php } ?>
-    </tbody>
-</table>
+<h2 class="enonce_film">Détails <?= $film["titre_film"] ?></h2>
+
+<div class="detail_cont">
+    <p>Date de sortie: <?= $film["date_sortie_film"] ?></p>
+    <p>Note des spectateurs: <?= $film["note_film"] ?>/100</p>
+    <p>Genre: <a href="index.php?action=listFilmsGenre&id=<?= $film["id_genre"] ?>"><?= $film["libelle_genre"] ?></a></p>
+</div>
+
+<h2 class="enonce_film">Production <?= $film["titre_film"] ?></h2>
+
+<div class="acteur_container">
+        <div class="acteur">
+            <div class="acteur_affiche">
+                <figure>
+                    <a href="index.php?action=detailReal&id=<?= $film["id_realisateur"] ?>"><img src="<?= $film["url_affiche_personne"] ?>" alt=""></a>
+                </figure>
+            </div>
+            <p class="acteur_infos">
+                <a href="index.php?action=detailReal&id=<?= $film["id_realisateur"] ?>"><?= $film["prenom_personne"] ?> <?= $film["nom_personne"] ?></a><br>
+            </p>
+        </div>
+
+</div>
+
+<h2 class="enonce_film">Casting <?= $film["titre_film"] ?></h2>
+
+<div class="acteur_container">
+    <?php
+    foreach ($casting->fetchAll() as $acteur) { ?>
+        <div class="acteur">
+            <div class="acteur_affiche">
+                <figure>
+                    <a href="index.php?action=detailActeur&id=<?= $acteur["id_acteur"] ?>"><img src="<?= $acteur["url_affiche_personne"] ?>" alt=""></a>
+                </figure>
+            </div>
+            <p class="acteur_infos">
+                <a href="index.php?action=detailActeur&id=<?= $acteur["id_acteur"] ?>"><?= $acteur["prenom_personne"] ?> <?= $acteur["nom_personne"] ?></a><br>
+            </p>
+        </div>
+    <?php } ?>
+
+</div>
 
 <?php
 $titre = $film["titre_film"];

@@ -35,6 +35,8 @@
   background-color: var(--main-body-background-color);
 
   min-height: 100vh;
+
+  /* padding: 250px; */
 }
 
 /*listFilms.php*/
@@ -116,7 +118,7 @@
 
   padding: 5px;
   margin: 5px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
   /* Fond noir transparent à 50% */
   border-radius: 5px;
   /* Optionnel : ajoute des coins arrondis */
@@ -166,7 +168,7 @@
 
 /*detailActeur.php*/
 
-.acteur_cont{
+.acteur_cont {
   padding: 50px 20px 20px 20px;
   display: flex;
   gap: 20px;
@@ -201,18 +203,67 @@
   gap: 20px;
 }
 
-.filmographie_acteur {
+.enonce_acteur {
   padding-left: 20px;
 
   font-family: var(--main-font-family);
 }
+
+/*detailFilm.php*/
+
+.film_cont, .detail_cont {
+  padding: 50px 20px 20px 20px;
+  display: flex;
+  gap: 20px;
+
+  font-family: var(--main-font-family);
+}
+
+
+.affiche_film {
+  aspect-ratio: 3/4;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 200px;
+}
+
+.affiche_film img {
+
+  width: 100%;
+  /* L'image prend toute la largeur de .film_affiche */
+  height: 100%;
+  /* L'image prend toute la hauteur de .film_affiche */
+  object-fit: cover;
+  /* L'image est ajustée sans distorsion, coupant les bords si nécessaire */
+  object-position: center;
+  /* Centrer l'image en cas de découpe */
+}
+
+.desc_film {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.enonce_film {
+  padding-left: 20px;
+
+  font-family: var(--main-font-family);
+}
+
+.detail_cont{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 
 /*TMP*/
 
 .main_header,
 .body,
 .main_header_nav,
-.figure,
-.note_film {
+.figure {
   outline: auto;
 }

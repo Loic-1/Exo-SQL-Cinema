@@ -19,7 +19,7 @@
     </div>
 </div>
 
-<h2 class="filmographie_acteur"> Filmographie de <?= $acteur["prenom_personne"] . " " . $acteur["nom_personne"] ?></h2>
+<h2 class="enonce_acteur"> Filmographie de <?= $acteur["prenom_personne"] . " " . $acteur["nom_personne"] ?></h2>
 
 <div class="film_container">
     <?php
