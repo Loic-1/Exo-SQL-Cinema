@@ -38,9 +38,13 @@
         Inscrivez-vous dès aujourd'hui et recevez notre newsletter mensuelle pour ne rien manquer de l'actualité de notre cinéma et des films à venir.
     </p>
     <a href="#">S'inscrire</a>
+
+
+
+    <!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
 </section>
 
 <?php
-$titre = "Home";
+$titre = "Accueil";
 $contenu = ob_get_clean();
 require "view/template.php";

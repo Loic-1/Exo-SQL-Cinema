@@ -22,24 +22,38 @@
 <h2 class="enonce_film">Détails <?= $film["titre_film"] ?></h2>
 
 <div class="detail_cont">
-    <p>Date de sortie: <?= $film["date_sortie_film"] ?></p>
-    <p>Note des spectateurs: <?= $film["note_film"] ?>/100</p>
-    <p>Genre: <a href="index.php?action=listFilmsGenre&id=<?= $film["id_genre"] ?>"><?= $film["libelle_genre"] ?></a></p>
+    <table>
+        <tr>
+            <td>Date de sortie: </td>
+            <td><?= date("d/m/Y", strtotime($film["date_sortie_film"]))   ?></p>
+        </tr>
+        </tr>
+        <tr>
+            <td>Genre: </td>
+            <td><a href="index.php?action=listFilmsGenre&id=<?= $film["id_genre"] ?>"><?= $film["libelle_genre"] ?></a></p>
+        </tr>
+        </tr>
+        <tr>
+            <td>Note des spectateurs: </td>
+            <td><?= $film["note_film"] ?>/100</p>
+        </tr>
+        </tr>
+    </table>
 </div>
 
 <h2 class="enonce_film">Production <?= $film["titre_film"] ?></h2>
 
 <div class="acteur_container">
-        <div class="acteur">
-            <div class="acteur_affiche">
-                <figure>
-                    <a href="index.php?action=detailReal&id=<?= $film["id_realisateur"] ?>"><img src="<?= $film["url_affiche_personne"] ?>" alt=""></a>
-                </figure>
-            </div>
-            <p class="acteur_infos">
-                <a href="index.php?action=detailReal&id=<?= $film["id_realisateur"] ?>"><?= $film["prenom_personne"] ?> <?= $film["nom_personne"] ?></a><br>
-            </p>
+    <div class="acteur">
+        <div class="acteur_affiche">
+            <figure>
+                <a href="index.php?action=detailReal&id=<?= $film["id_realisateur"] ?>"><img src="<?= $film["url_affiche_personne"] ?>" alt=""></a>
+            </figure>
         </div>
+        <p class="acteur_infos">
+            <a href="index.php?action=detailReal&id=<?= $film["id_realisateur"] ?>"><?= $film["prenom_personne"] ?> <?= $film["nom_personne"] ?></a><br>
+        </p>
+    </div>
 
 </div>
 

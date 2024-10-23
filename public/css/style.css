@@ -16,13 +16,32 @@
 
   display: flex;
   justify-content: center;
+
+  height: 60px;
+
+  font-family: var(--main-font-family);
+  font-weight: bold;
+}
+
+.main_header a {
+  color: black;
+  text-decoration: none;
+}
+
+.main_header a:hover {
+  text-decoration: underline;
 }
 
 .main_header_nav {
   width: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .main_header_nav ul {
+  width: 100%;
   display: flex;
   justify-content: space-around;
 }
@@ -168,6 +187,10 @@
 
 /*detailActeur.php*/
 
+.main_acteur h2{
+  margin-bottom: 20px;
+}
+
 .acteur_cont {
   padding: 50px 20px 20px 20px;
   display: flex;
@@ -211,7 +234,8 @@
 
 /*detailFilm.php*/
 
-.film_cont, .detail_cont {
+.film_cont,
+.detail_cont {
   padding: 50px 20px 20px 20px;
   display: flex;
   gap: 20px;
@@ -219,6 +243,9 @@
   font-family: var(--main-font-family);
 }
 
+.main_film h2 {
+  margin-bottom: 20px;
+}
 
 .affiche_film {
   aspect-ratio: 3/4;
@@ -252,18 +279,35 @@
   font-family: var(--main-font-family);
 }
 
-.detail_cont{
+.detail_cont {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
+.detail_cont a {
+  color: black;
+  text-decoration: none;
+}
+
+.detail_cont a:hover {
+  text-decoration: underline;
+}
+
+.detail_cont table {
+  width: fit-content;
+}
+
+.detail_cont td {
+  padding-right: 20px;
+  padding-bottom: 10px;
+}
 
 /*TMP*/
 
-.main_header,
+/* .main_header,
 .body,
 .main_header_nav,
 .figure {
   outline: auto;
-}
+} */
