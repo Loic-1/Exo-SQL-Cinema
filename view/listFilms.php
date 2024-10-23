@@ -14,11 +14,10 @@
             </div>
             <p class="film_infos">
                 <a href="index.php?action=detailFilm&id=<?= $film["id_film"] ?>"><?= $film["titre_film"] ?></a> <br>
-                <?= $film["sortie_film"] ?>, <a href="index.php?action=listFilmsGenre&id=<?= $film["id_genre"] ?>"><?= $film["libelle_genre"] ?></a>
+                <?= $film["sortie_film"] ?>, <?= $film["genres"] ?>
             </p>
         </div>
     <?php } ?>
-
 </div>
 
 <?php

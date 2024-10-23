@@ -12,11 +12,11 @@ class CinemaController
         $pdo = Connect::seConnecter();
         // Effectue la requête spécifique
         $requeteListFilms = $pdo->query(
-            "SELECT f.url_affiche_film, g.id_genre, f.id_film, f.titre_film, YEAR(f.sortie_film) AS sortie_film, g.libelle_genre, f.note_film
+            "SELECT f.url_affiche_film, f.id_film, f.titre_film, YEAR(f.sortie_film) AS sortie_film, GROUP_CONCAT(g.libelle_genre SEPARATOR ', ') AS genres, f.note_film
             FROM film f
             INNER JOIN appartenir a ON f.id_film = a.id_film
             INNER JOIN genre g ON a.id_genre = g.id_genre
-            GROUP BY f.id_film, g.id_genre
+            GROUP BY f.id_film
             ORDER BY f.note_film DESC, sortie_film DESC;"
         );
 
