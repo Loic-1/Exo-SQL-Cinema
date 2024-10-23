@@ -171,7 +171,7 @@ GROUP BY p.id_personne, ac.id_acteur;
 
 -- listActeurs()
 
-SELECT ac.id_acteur, p.prenom_personne, p.nom_personne
+SELECT ac.id_acteur, p.prenom_personne, p.nom_personne, p.url_affiche_personne
 FROM personne p
 INNER JOIN acteur ac ON p.id_personne = ac.id_personne
 ORDER BY p.nom_personne ASC;

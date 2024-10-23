@@ -8,6 +8,7 @@
   --main-header-background-color: #ffcd00;
   --main-body-background-color: #f2f3f3;
   --affiche-font-color: #fafafa;
+  --main-font-family: Arial, Helvetica, sans-serif;
 }
 
 .main_header {
@@ -41,17 +42,17 @@
   padding: 50px 20px 20px 20px;
 
   display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(200px, 1fr)
-  ); /* Colonnes adaptatives */
-  column-gap: 20px; /* Espacement entre les films */
+  grid-template-columns: repeat(auto-fill,
+      minmax(200px, 1fr));
+  /* Colonnes adaptatives */
+  column-gap: 20px;
+  /* Espacement entre les films */
   row-gap: 50px;
 
   justify-items: center;
 }
 
-.film {
+.film{
   position: relative;
 
   display: flex;
@@ -64,7 +65,8 @@
   text-align: center;
 }
 
-.film_affiche {
+.film_affiche,
+.acteur_affiche {
   aspect-ratio: 3/4;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -72,39 +74,96 @@
   width: 100%;
 }
 
-.film_affiche img {
-  width: 100%; /* L'image prend toute la largeur de .film_affiche */
-  height: 100%; /* L'image prend toute la hauteur de .film_affiche */
-  object-fit: cover; /* L'image est ajustée sans distorsion, coupant les bords si nécessaire */
-  object-position: center; /* Centrer l'image en cas de découpe */
+.film_affiche img,
+.acteur_affiche img {
+  width: 100%;
+  /* L'image prend toute la largeur de .film_affiche */
+  height: 100%;
+  /* L'image prend toute la hauteur de .film_affiche */
+  object-fit: cover;
+  /* L'image est ajustée sans distorsion, coupant les bords si nécessaire */
+  object-position: center;
+  /* Centrer l'image en cas de découpe */
+
+  transition: 0.3s;
+}
+
+.film_affiche img:hover,
+.acteur_affiche img:hover {
+  transform: scale(1.05);
 }
 
 .note_film {
+  position: absolute;
+  top: 5px;
+  left: 5px;
   padding: 5px;
-  background-color: rgba(0, 0, 0, 0.5); /* Fond noir transparent à 50% */
-  color: white; /* Texte en blanc pour le contraste */
-  border-radius: 5px; /* Optionnel : ajoute des coins arrondis */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Fond noir transparent à 50% */
+  color: white;
+  /* Texte en blanc pour le contraste */
+  border-radius: 5px;
+  /* Optionnel : ajoute des coins arrondis */
+
+  font-family: var(--main-font-family);
 }
 
-.film_infos {
+.film_infos,
+.acteur_infos {
   position: absolute;
   bottom: 0;
   color: var(--affiche-font-color);
 
   padding: 5px;
   margin: 5px;
-  background-color: rgba(0, 0, 0, 0.5); /* Fond noir transparent à 50% */
-  border-radius: 5px; /* Optionnel : ajoute des coins arrondis */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Fond noir transparent à 50% */
+  border-radius: 5px;
+  /* Optionnel : ajoute des coins arrondis */
+
+  font-family: var(--main-font-family);
 }
 
-.film_infos a {
+.film_infos a,
+.acteur_infos a {
   color: var(--affiche-font-color);
   text-decoration: none;
 }
 
-.film_infos a:hover {
-    text-decoration: underline;
+.film_infos a:hover,
+.acteur_infos a:hover {
+  text-decoration: underline;
 }
+
+/*listActeurs.php*/
+
+.acteur_container {
+  padding: 50px 20px 20px 20px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill,
+      minmax(150px, 1fr));
+  /* Colonnes adaptatives */
+  column-gap: 20px;
+  /* Espacement entre les films */
+  row-gap: 50px;
+
+  justify-items: center;
+}
+
+.acteur {
+  position: relative;
+
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+  align-items: center;
+
+  width: 150px;
+
+  text-align: center;
+}
+
 
 /*TMP*/
 

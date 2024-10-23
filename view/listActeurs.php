@@ -1,22 +1,21 @@
 <?php ob_start() ?>
 
-<table class="uk-table uk-table-striped" style="border: 1px solid black; border-collapse: collapse;">
-    <thead>
-        <tr>
-            <th style="border: 1px solid black;">ID (tmp)</th>
-            <th style="border: 1px solid black;">ACTEUR</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php
-        foreach ($requeteListActeurs->fetchAll() as $acteur) { ?>
-            <tr>
-                <td style="border: 1px solid black;"><?= $acteur["id_acteur"] ?></td>
-                <td style="border: 1px solid black;"><a href="index.php?action=detailActeur&id=<?= $acteur["id_acteur"] ?>"><?= $acteur["prenom_personne"] ?> <?= $acteur["nom_personne"] ?></a></td>
-            </tr>
-        <?php } ?>
-    </tbody>
-</table>
+<div class="acteur_container">
+    <?php
+    foreach ($requeteListActeurs->fetchAll() as $acteur) { ?>
+        <div class="acteur">
+            <div class="acteur_affiche">
+                <figure>
+                <a href="index.php?action=detailActeur&id=<?= $acteur["id_acteur"] ?>"><img src="<?= $acteur["url_affiche_personne"] ?>" alt=""></a>
+                </figure>
+            </div>
+            <p class="acteur_infos">
+                <a href="index.php?action=detailActeur&id=<?= $acteur["id_acteur"] ?>"><?= $acteur["prenom_personne"] ?> <?=$acteur["nom_personne"]?></a><br>
+            </p>
+        </div>
+    <?php } ?>
+
+</div>
 
 <?php
 
