@@ -154,7 +154,7 @@ ORDER BY p.nom_personne ASC;
 
 -- listFilmsGenre()
 
-SELECT g.libelle_genre, f.id_film, f.titre_film, YEAR(f.sortie_film) AS sortie_film, f.note_film
+SELECT g.libelle_genre, f.id_film, f.titre_film, YEAR(f.sortie_film) AS sortie_film, f.note_film, f.url_affiche_film
 FROM film f
 INNER JOIN appartenir a ON f.id_film = a.id_film
 INNER JOIN genre g ON a.id_genre = g.id_genre
@@ -178,7 +178,7 @@ ORDER BY p.nom_personne ASC;
 
 -- listFilmsActeur()
 
-SELECT f.id_film, f.titre_film, YEAR(f.sortie_film) AS sortie_film, g.libelle_genre, f.note_film, r.nom_role
+SELECT g.id_genre, f.url_affiche_film, f.id_film, f.titre_film, YEAR(f.sortie_film) AS sortie_film, g.libelle_genre, f.note_film, r.nom_role
 FROM acteur ac
 INNER JOIN jouer j ON ac.id_acteur = j.id_acteur
 INNER JOIN role r ON j.id_role = r.id_role
