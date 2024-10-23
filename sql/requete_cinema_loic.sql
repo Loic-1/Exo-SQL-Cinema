@@ -163,7 +163,7 @@ ORDER BY f.note_film DESC, sortie_film DESC;
 
 -- detailActeur()
 
-SELECT ac.id_acteur, p.prenom_personne, p.nom_personne, FLOOR(DATEDIFF(CURRENT_DATE, p.date_naissance_personne) / 365) AS age_personne
+SELECT ac.id_acteur, p.prenom_personne, p.nom_personne, FLOOR(DATEDIFF(CURRENT_DATE, p.date_naissance_personne) / 365) AS age_personne, p.url_affiche_personne, p.bio_personne
 FROM personne p
 INNER JOIN acteur ac ON p.id_personne = ac.id_personne
 WHERE ac.id_acteur = 1

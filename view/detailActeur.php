@@ -1,26 +1,27 @@
 <?php ob_start(); ?>
 
-<?php $acteur = $requeteDetailActeur->fetch(); ?>
+<div class="acteur_cont">
+    <?php $acteur = $requeteDetailActeur->fetch(); ?>
 
-<table class="uk-table uk-table-striped" style="border: 1px solid black; border-collapse: collapse;">
-    <thead>
-        <tr>
-            <th style="border: 1px solid black;">ID (tmp)</th>
-            <th style="border: 1px solid black;">ACTEUR</th>
-            <th style="border: 1px solid black;">AGE</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style="border: 1px solid black;"><?= $acteur["id_acteur"] ?></td>
-            <td style="border: 1px solid black;"><?= $acteur["prenom_personne"] ?> <?= $acteur["nom_personne"] ?></td>
-            <td style="border: 1px solid black;"><?= $acteur["age_personne"] ?></td>
-        </tr>
-    </tbody>
-</table>
+    <div class="main_acteur">
+        <h2><?=$acteur["prenom_personne"]?> <?=$acteur["nom_personne"]?></h2>
+        
+        <div class="photo_acteur">
+            <figure>
+                <img src="<?= $acteur["url_affiche_personne"] ?>" alt="">
+            </figure>
+        </div>
+    </div>
+    <div class="desc_acteur">
+        <h3>Biographie</h3>
+        <p><?= $acteur["bio_personne"] == NULL ? "Cette personne n'a pas encore de biographie." : $acteur["bio_personne"]?></p>
+    </div>
+</div>
 
-<div class="film_container">
-    <?php
+    <h2 class="filmographie_acteur"> Filmographie de <?= $acteur["prenom_personne"] . " " . $acteur["nom_personne"] ?></h2>
+
+    <div class="film_container">
+        <?php
     foreach ($filmographie->fetchAll() as $film) { ?>
         <div class="film">
             <div class="film_affiche">
@@ -36,9 +37,9 @@
                 <?= $film["sortie_film"] ?>, <a href="index.php?action=listFilmsGenre&id=<?= $film["id_genre"] ?>"><?= $film["libelle_genre"] ?></a>
             </p>
         </div>
-    <?php } ?>
-
-</div>
+        <?php } ?>
+        
+    </div>
 
 <?php
 $titre = $acteur["prenom_personne"] . " " . $acteur["nom_personne"];
