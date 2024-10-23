@@ -78,6 +78,15 @@ class CinemaController
             GROUP BY f.id_film, p.id_personne, g.id_genre;"
         );
 
+        $genre = $pdo->query(
+            "SELECT g.id_genre, g.libelle_genre
+            FROM genre g
+            INNER JOIN appartenir a ON g.id_genre = a.id_genre
+            INNER JOIN film f ON a.id_film = f.id_film
+            WHERE f.id_film = $id
+            GROUP BY g.id_genre;"
+        );
+
         $casting = $pdo->query(
             "SELECT ac.id_acteur, p.prenom_personne, p.nom_personne, p.url_affiche_personne
             FROM personne p

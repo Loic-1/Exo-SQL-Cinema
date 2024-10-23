@@ -29,8 +29,14 @@
         </tr>
         </tr>
         <tr>
-            <td>Genre: </td>
-            <td><a href="index.php?action=listFilmsGenre&id=<?= $film["id_genre"] ?>"><?= $film["libelle_genre"] ?></a></p>
+            <td><?= $genre->rowcount() > 1 ? "Genres: " : "Genre: "?></td>
+            <td>
+
+                <?php
+                foreach ($genre->fetchAll() as $genre) { ?>
+                    <a href="index.php?action=listFilmsGenre&id=<?= $genre["id_genre"] ?>"><?= $genre["libelle_genre"] ?></a>
+                <?php } ?>
+            </td>
         </tr>
         </tr>
         <tr>

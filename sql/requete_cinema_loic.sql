@@ -190,3 +190,10 @@ GROUP BY f.id_film, g.id_genre, r.id_role
 ORDER BY f.note_film DESC, sortie_film DESC;
 
 -- fin
+
+SELECT g.id_genre, g.libelle_genre
+FROM genre g
+INNER JOIN appartenir a ON g.id_genre = a.id_genre
+INNER JOIN film f ON a.id_film = f.id_film
+WHERE f.id_film = 1
+GROUP BY g.id_genre;
