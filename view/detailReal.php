@@ -1,44 +1,48 @@
 <?php ob_start(); ?>
 
-<?php $real = $requeteDetailReal->fetch(); ?>
+<div class="acteur_cont">
+    <?php $real = $requeteDetailReal->fetch(); ?>
 
-<table class="uk-table uk-table-striped" style="border: 1px solid black; border-collapse: collapse;">
-    <thead>
-        <tr>
-            <th style="border: 1px solid black;">REALISATEUR</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style="border: 1px solid black;"><?= $real["prenom_personne"] ?> <?= $real["nom_personne"] ?></td>
-        </tr>
-    </tbody>
-</table>
+    <div class="main_acteur">
+        <h2><?= $real["prenom_personne"] ?> <?= $real["nom_personne"] ?></h2>
 
-<?php $films = $filmographie->fetchAll() ?>
+        <div class="photo_acteur">
+            <figure>
+                <img src="<?= $real["url_affiche_personne"] ?>" alt="">
+            </figure>
+        </div>
+    </div>
+    <div class="desc_acteur">
+        <h3>Biographie</h3>
+        <p><?= $real["bio_personne"] == NULL ? "Cette personne n'a pas encore de biographie." : $real["bio_personne"] ?>
+        </p>
+    </div>
+</div>
 
-<table class="uk-table uk-table-striped" style="border: 1px solid black; border-collapse: collapse;">
-    <thead>
-        <tr>
-            <th style="border: 1px solid black;">ID (tmp)</th>
-            <th style="border: 1px solid black;">TITRE</th>
-            <th style="border: 1px solid black;">ANNEE SORTIE</th>
-            <th style="border: 1px solid black;">GENRE</th>
-            <th style="border: 1px solid black;">NOTE</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($films as $film) { ?>
-            <tr>
-                <td style="border: 1px solid black;"><?= $film["id_film"] ?></td>
-                <td style="border: 1px solid black;"><a href="index.php?action=detailFilm&id=<?= $film["id_film"] ?>"><?= $film["titre_film"] ?></a></td>
-                <td style="border: 1px solid black;"><?= $film["sortie_film"] ?></td>
-                <td style="border: 1px solid black;"><a href="index.php?action=listFilmsGenre&id=<?= $film["id_genre"] ?>"><?= $film["libelle_genre"] ?></a></td>
-                <td style="border: 1px solid black;"><?= $film["note_film"] ?></td>
-            </tr>
-        <?php } ?>
-    </tbody>
-</table>
+<h2 class="filmographie_acteur"> Filmographie de <?= $real["prenom_personne"] . " " . $real["nom_personne"] ?></h2>
+
+<div class="film_container">
+    <?php
+    foreach ($filmographie->fetchAll() as $film) { ?>
+        <div class="film">
+            <div class="film_affiche">
+                <figure>
+                    <a href="index.php?action=detailFilm&id=<?= $film["id_film"] ?>"><img
+                            src="<?= $film["url_affiche_film"] ?>" alt=""></a>
+                </figure>
+                <div class="note_film">
+                    <?= $film["note_film"] ?>
+                </div>
+            </div>
+            <p class="film_infos">
+                <a href="index.php?action=detailFilm&id=<?= $film["id_film"] ?>"><?= $film["titre_film"] ?></a> <br>
+                <?= $film["sortie_film"] ?>, <a
+                    href="index.php?action=listFilmsGenre&id=<?= $film["id_genre"] ?>"><?= $film["libelle_genre"] ?></a>
+            </p>
+        </div>
+    <?php } ?>
+
+</div>
 
 <?php
 $titre = $real["prenom_personne"] . " " . $real["nom_personne"];

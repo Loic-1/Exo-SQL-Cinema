@@ -96,7 +96,7 @@ class CinemaController
     {
         $pdo = Connect::seConnecter();
         $requeteDetailReal = $pdo->query(
-            "SELECT p.prenom_personne, p.nom_personne
+            "SELECT p.prenom_personne, p.nom_personne, p.bio_personne, p.url_affiche_personne
             FROM personne p
             INNER JOIN realisateur r ON p.id_personne = r.id_personne
             WHERE r.id_realisateur = $id
@@ -104,7 +104,7 @@ class CinemaController
         );
 
         $filmographie = $pdo->query(
-            "SELECT g.id_genre, f.id_film, f.titre_film, YEAR(f.sortie_film) AS sortie_film, g.libelle_genre, f.note_film
+            "SELECT g.id_genre, f.id_film, f.titre_film, YEAR(f.sortie_film) AS sortie_film, g.libelle_genre, f.note_film, f.url_affiche_film
             FROM film f
             INNER JOIN realisateur r ON f.id_realisateur = r.id_realisateur
             INNER JOIN appartenir a ON f.id_film = a.id_film
