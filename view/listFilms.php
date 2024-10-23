@@ -6,7 +6,7 @@
         <div class="film">
             <div class="film_affiche">
                 <figure>
-                    <a href="index.php?action=detailFilm&id=<?= $film["id_film"] ?>"><img src="https://fr.web.img6.acsta.net/c_310_420/pictures/22/03/29/15/12/0827894.jpg" alt=""></a>
+                    <a href="index.php?action=detailFilm&id=<?= $film["id_film"] ?>"><img src="<?= $film["url_affiche_film"] ?>" alt=""></a>
                 </figure>
                 <div class="note_film">
                     <?= $film["note_film"] ?>
