@@ -136,7 +136,7 @@
   color: var(--affiche-font-color);
 
   padding: 5px;
-  margin: 5px;
+  margin: 15px;
   background-color: rgba(0, 0, 0, 0.6);
   /* Fond noir transparent à 50% */
   border-radius: 5px;
